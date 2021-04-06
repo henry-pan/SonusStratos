@@ -18,7 +18,7 @@
   },
   "description": "An audio sharing application.",
   "version": "1.0.0",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"

@@ -21,8 +21,8 @@ const App = () => (
       <Link to="/">
         <h1>SonusStratos</h1>
       </Link>
-      <SplashContainer />
     </header>
+    <SplashContainer />
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

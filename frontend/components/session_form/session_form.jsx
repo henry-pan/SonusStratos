@@ -29,7 +29,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    console.log("form");
     const display = (this.props.formType === "Signup") ? (
       <Link to="/login">Already have an account? Log In!</Link>
     ) : (

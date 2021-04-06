@@ -11,11 +11,12 @@ import {
 import SplashContainer from "./splash/splash_container";
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
-
+import Modal from "./modal/modal";
 import { AuthRoute } from "../util/route_util";
 
 const App = () => (
   <>
+    <Modal />
     <header>
       <Link to="/">
         <h1>SonusStratos</h1>

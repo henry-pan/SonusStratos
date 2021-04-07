@@ -56,16 +56,23 @@ class SessionForm extends React.Component {
       emailInput = <input className="modal-input" onChange={this.handleEmail} type="text" value={this.state.email} placeholder="Your email"/>;
     }
 
-    return (
-      <>
+    let demoLogin;
+    if (this.props.formType === "Login") {
+      demoLogin = <>
         <div className="modal-social-login">
-          <button className="modal-button" onClick={this.handleDemo}>Continue with Demo 1</button>
-          <button className="modal-button" onClick={this.handleDemo}>Continue with Demo 2</button>
-          <button className="modal-button" onClick={this.handleDemo}>Continue with Demo 3</button>
+          <button className="modal-button" id="login-demo-1" onClick={this.handleDemo}>Continue with Demo 1</button>
+          <button className="modal-button" id="login-demo-2" onClick={this.handleDemo}>Continue with Demo 2</button>
+          <button className="modal-button" id="login-demo-3" onClick={this.handleDemo}>Continue with Demo 3</button>
         </div>
         <div className="modal-divider">
         <p>or</p>
         </div>
+      </>;
+    }
+
+    return (
+      <>
+        {demoLogin}
         <form className="modal-form" onSubmit={this.handleSubmit}>
           <input className="modal-input" onChange={this.handleUser} type="text" value={this.state.username} placeholder="Your username"/>
           {emailInput}

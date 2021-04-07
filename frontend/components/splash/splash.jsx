@@ -17,6 +17,7 @@ export default ({ currentUser, logout, openModal }) => {
     <div className="content">
       <h1 className="splash-logo"></h1>
       {display}
+      <div className="splash-top"></div>
       <section className="splash-banner">
         {currentUser ? <h1>Welcome, {currentUser.username}!</h1> : <></>}
         <h1>What's next in music is first on SonusStratos</h1>

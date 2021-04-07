@@ -36,16 +36,13 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    this.props.processForm({
-      username: "tiger",
-      password: "123456"
-    });
+    this.props.processForm({ username: "tiger", password: "123456" });
     this.props.closeModal();
   }
 
   renderErrors(){
     return (
-      <ul>
+      <ul className="modal-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{error}</li>
         ))}
@@ -54,29 +51,31 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const display = (this.props.formType === "Signup") ? (
-      <Link to="/login">Already have an account? Log In!</Link>
-    ) : (
-      <Link to="/signup">New user? Sign up!</Link>
-    );
-
-    const emailInput = (this.props.formType === "Signup") ? (
-      <input className="modal-input" onChange={this.handleEmail} type="text" value={this.state.email} placeholder="Your email"/>
-    ) : (
-      <div></div>
-    );
+    let emailInput;
+    if (this.props.formType === "Signup") {
+      emailInput = <input className="modal-input" onChange={this.handleEmail} type="text" value={this.state.email} placeholder="Your email"/>;
+    }
 
     return (
-      <div>
-        <button className="modal-button" onClick={this.handleDemo}>Demo Login</button>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderErrors()}
+      <>
+        <div className="modal-social-login">
+          <button className="modal-button" onClick={this.handleDemo}>Continue with Demo 1</button>
+          <button className="modal-button" onClick={this.handleDemo}>Continue with Demo 2</button>
+          <button className="modal-button" onClick={this.handleDemo}>Continue with Demo 3</button>
+        </div>
+        <div className="modal-divider">
+        <p>or</p>
+        </div>
+        <form className="modal-form" onSubmit={this.handleSubmit}>
           <input className="modal-input" onChange={this.handleUser} type="text" value={this.state.username} placeholder="Your username"/>
           {emailInput}
           <input className="modal-input" onChange={this.handlePassword} type="password" value={this.state.password} placeholder="Your password"/>
+          {this.renderErrors()}
           <button className="modal-button">{this.props.formType}</button>
+          <p>We won't be using your email for anything, except to take up space in our database. You can never unsubscribe - you're here forever!</p>
+          <p>We may use information you provide us to make some extra cash by selling to the highest bidder.</p>
         </form>
-      </div>
+      </>
     );
   
   }

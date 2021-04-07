@@ -12,7 +12,7 @@
 .splash-logo {
   display: block;
   position: absolute;
-  top: 13px;
+  top: 15px;
   left: 19px;
   background: image-url('logo-full-transparent.png');
   width: 184px;
@@ -22,8 +22,14 @@
 
 .splash-signin {
   position: absolute;
-  top: 18px;
+  top: 24px;
   right: 30px;
+}
+
+.splash-top {
+  background-color: #1b9bb9;
+  width: 100%;
+  height: 4px;
 }
 
 .splash-banner {

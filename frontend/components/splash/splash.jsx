@@ -8,8 +8,8 @@ export default ({ currentUser, logout, openModal }) => {
     </div>
   ) : (
     <nav className="splash-signin">
-      <button className="button-transparent" onClick={() => openModal('Login')}>Sign in</button>
-      <button onClick={() => openModal('Signup')}>Create account</button>
+      <button className="button-transparent" onClick={() => openModal('login')}>Sign in</button>
+      <button onClick={() => openModal('signup')}>Create account</button>
     </nav>
   );
   
@@ -18,7 +18,7 @@ export default ({ currentUser, logout, openModal }) => {
       <h1 className="splash-logo"></h1>
       {display}
       <section className="splash-banner">
-        {currentUser ? <h1>Welcome, {currentUser.username}</h1> : <></>}
+        {currentUser ? <h1>Welcome, {currentUser.username}!</h1> : <></>}
         <h1>What's next in music is first on SonusStratos</h1>
         <p>Upload your first track and begin your journey. SonusStratos gives you space to create, find your fans, and connect with other artists. 
         </p>

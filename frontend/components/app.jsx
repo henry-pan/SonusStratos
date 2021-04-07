@@ -17,10 +17,12 @@ import { AuthRoute } from "../util/route_util";
 const App = () => (
   <>
     <Modal />
-    <SplashContainer />
+    {/* <SplashContainer /> */}
     <Switch>
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path="/" component={SplashContainer}/>
+      <Redirect to="/" />
+      {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
     </Switch>
   </>
 );

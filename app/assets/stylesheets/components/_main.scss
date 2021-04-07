@@ -100,12 +100,59 @@
   }
 }
 
+.splash-devices {
+  display: flex;
+  background-color: #f2f2f2;
+  width: 1240px;
+  height: 450px;
+  margin-top: 60px;
+  padding: 0 70px;
+
+  figure {
+    flex-grow: 1;
+    background-image: image-url('splash-devices.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 325px;
+    margin-left: 45px;
+
+    h2 {
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 100;
+      margin-bottom: 17px;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 3px;
+        background-image: linear-gradient(90deg,#b88e06,rgb(51, 5, 158) 50%,rgb(0, 235, 252));
+        margin-top: 15px;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 100;
+      margin: 0 0 10px;
+    }
+  }
+}
+
 .splash-call {
   display: flex;
   background: image-url('splash-call.jpg');
   width: 1240px;
   height: 350px;
   color: #fff;
+  text-shadow: 0 0 3px rgba(5,5,5,.5);
 
   &-container {
     display: flex;

@@ -89,6 +89,13 @@ export default ({ currentUser, logout, openModal }) => {
           </div>
         </div>
       </section>
+      <section className="splash-devices">
+        <figure />
+        <div className="splash-devices-info">
+          <h2>Never stop listening</h2>
+          <p>SonusStratos is available exclusively on the Web! And technically also iOS, Android, and probably even the Nintendo 3DS.</p>
+        </div>
+      </section>
       <section className="splash-call">
         <div className="splash-call-container">
         <h2>Calling all creators</h2>

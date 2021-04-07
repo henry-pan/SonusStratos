@@ -3,25 +3,24 @@ import { Link } from "react-router-dom";
 
 export default ({ currentUser, logout, openModal }) => {
   const display = currentUser ? (
-    <div>
-      <p>Welcome, {currentUser.username}</p>
+    <div className="splash-signin">
       <button onClick={logout}>Log Out</button>
     </div>
   ) : (
-    <nav className="login-signup">
-      <button onClick={() => openModal('Login')}>Login</button>
-      &nbsp;or&nbsp;
-      <button onClick={() => openModal('Signup')}>Signup</button>
+    <nav className="splash-signin">
+      <button className="button-transparent" onClick={() => openModal('Login')}>Sign in</button>
+      <button onClick={() => openModal('Signup')}>Create account</button>
     </nav>
   );
   
   return (
     <div className="content">
+      <h1 className="splash-logo"></h1>
+      {display}
       <section className="splash-banner">
-        {display}
+        {currentUser ? <h1>Welcome, {currentUser.username}</h1> : <></>}
         <h1>What's next in music is first on SonusStratos</h1>
-        <p>Upload your first track and being your journey. SonusStratos gives
-          you space to create, find your fans, and connect with other artists.
+        <p>Upload your first track and begin your journey. SonusStratos gives you space to create, find your fans, and connect with other artists. 
         </p>
       </section>
       <section className="splash-trending">

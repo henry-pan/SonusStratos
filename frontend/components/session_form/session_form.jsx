@@ -10,12 +10,18 @@ class SessionForm extends React.Component {
     };
 
     this.handleUser = this.handleUser.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleUser(e) {
     this.setState({ username: e.target.value });
+  }
+
+  handleEmail(e) {
+    this.setState({ email: e.target.value });
   }
 
   handlePassword(e) {
@@ -26,6 +32,15 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    this.props.processForm({
+      username: "tiger",
+      password: "123456"
+    });
+    this.props.closeModal();
   }
 
   renderErrors(){
@@ -42,22 +57,25 @@ class SessionForm extends React.Component {
     const display = (this.props.formType === "Signup") ? (
       <Link to="/login">Already have an account? Log In!</Link>
     ) : (
-      <Link to="/signup">New user? Sign Up!</Link>
+      <Link to="/signup">New user? Sign up!</Link>
+    );
+
+    const emailInput = (this.props.formType === "Signup") ? (
+      <input className="modal-input" onChange={this.handleEmail} type="text" value={this.state.email} placeholder="Your email"/>
+    ) : (
+      <div></div>
     );
 
     return (
       <div>
+        <button className="modal-button" onClick={this.handleDemo}>Demo Login</button>
         <form onSubmit={this.handleSubmit}>
           {this.renderErrors()}
-          <label>Username:
-            <input onChange={this.handleUser} type="text" value={this.state.username}/>
-          </label>
-          <label>Password:
-            <input onChange={this.handlePassword} type="password" value={this.state.password}/>
-          </label>
-          <button>{this.props.formType}</button>
+          <input className="modal-input" onChange={this.handleUser} type="text" value={this.state.username} placeholder="Your username"/>
+          {emailInput}
+          <input className="modal-input" onChange={this.handlePassword} type="password" value={this.state.password} placeholder="Your password"/>
+          <button className="modal-button">{this.props.formType}</button>
         </form>
-        {display}
       </div>
     );
   

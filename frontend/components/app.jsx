@@ -17,11 +17,6 @@ import { AuthRoute } from "../util/route_util";
 const App = () => (
   <>
     <Modal />
-    <header>
-      <Link to="/">
-        <h1>SonusStratos</h1>
-      </Link>
-    </header>
     <SplashContainer />
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />

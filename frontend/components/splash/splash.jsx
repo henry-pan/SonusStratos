@@ -63,9 +63,9 @@ export default ({ currentUser, logout, openModal }) => {
             <h3>Dreamshot Dissonance</h3>
           </div>
           <div className="splash-track">
-            <img src={window.atelier2} />
-            <h2>Nefertiti (Ver. MMXI)</h2>
-            <h3>Atelier Meruru</h3>
+            <img src={window.kh} />
+            <h2>The Other Promise</h2>
+            <h3>Kingdom Hearts II Final Mix</h3>
           </div>
           <div className="splash-track">
             <img src={window.nier} />

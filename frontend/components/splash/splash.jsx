@@ -89,6 +89,23 @@ export default ({ currentUser, logout, openModal }) => {
           </div>
         </div>
       </section>
+      <section className="splash-call">
+        <div className="splash-call-container">
+        <h2>Calling all creators</h2>
+        <p>Get on SonusStratos to connect with fans, share your sounds, and grow your audience. What are you waiting for?</p>
+        <button className="button-transparent" onClick={() => openModal('login')}>Find out more</button>
+        </div>
+      </section>
+      <section className="splash-join">
+        <h2>Thanks for listening. Now join in.</h2>
+        <h3>Save tracks, follow artists and build playlists. All for free.</h3>
+        <button onClick={() => openModal('signup')}>Create account</button>
+        <p>Already have an account? <button className="button-transparent" onClick={() => openModal('login')}>Sign in</button></p>
+      </section>
+      <section className="splash-footer">
+        <span><a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a></span>
+        <p>Language: English (US)</p>
+      </section>
     </div>
   );
 };

@@ -27,7 +27,7 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
+  background-color: $inner-body;
   width: 450px;
   height: 550px;
 }
@@ -47,7 +47,7 @@
   &:before {
     left: 0;
     width: 43%;
-    border-top: 1px solid #333;
+    border-top: 1px solid $dark-text;
     content: " ";
     position: absolute;
     top: .5em;
@@ -55,7 +55,7 @@
   &:after {
     right: 0;
     width: 43%;
-    border-top: 1px solid #333;
+    border-top: 1px solid $dark-text;
     content: " ";
     position: absolute;
     top: .5em;
@@ -68,17 +68,17 @@
   p {
     font-weight: 100;
     font-size: 12px;
-    color: #999;
+    color: $light-text;
     margin-bottom: 6px;
   }
 }
 
 .modal-input {
   display: inline-block;
-  background: #fff;
-  color: #333;
+  background-color: $inner-body;
+  color: $dark-text;
   outline: 0;
-  border: 1px solid #ccc;
+  border: 1px solid $light-border;
   box-sizing: border-box;
   font-size: 18px;
   line-height: 24px;
@@ -88,7 +88,7 @@
   margin-bottom: 10px;
   
   &:focus {
-    border-color: #999;
+    border-color: $dark-border;
   }
 }
 
@@ -108,7 +108,7 @@
 
 .modal-errors {
   margin: .5em 0;
-  color: #cf0000;
+  color: $error;
 }
 
 #login-demo-1 {

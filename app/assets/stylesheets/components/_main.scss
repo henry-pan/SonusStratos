@@ -3,7 +3,7 @@
   position: relative;
   flex-wrap: wrap;
   margin: 0 auto;
-  background: #fff;
+  background: $inner-body;
   width: 1240px;
   border-top: 0;
   justify-content: center;
@@ -27,7 +27,7 @@
 }
 
 .splash-top {
-  background-color: #1b9bb9;
+  background-color: $accent;
   width: 100%;
   height: 4px;
 }
@@ -40,8 +40,8 @@
   background: image-url('splash-banner.jpg');
   width: 1240px;
   height: 450px;
-  text-shadow: 0 0 3px rgba(5,5,5,.5);
-  box-shadow: inset 0 120px 40px -40px rgba(5,5,5,.5);
+  text-shadow: 0 0 3px $shadow;
+  box-shadow: inset 0 120px 40px -40px $shadow;
 
   h1 {
     display: block;
@@ -51,12 +51,12 @@
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
-    color: #fff;
+    color: $lightest-text;
   }
   
   p {
     max-width: 530px;
-    color: #fff;
+    color: $lightest-text;
     font-size: 18px;
     text-align: center;
     line-height: 25px;
@@ -96,13 +96,13 @@
 
   h3 {
     font: 12px/1.4 Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-    color: #999;
+    color: $light-text;
   }
 }
 
 .splash-devices {
   display: flex;
-  background-color: #f2f2f2;
+  background-color: $outer-body;
   width: 1240px;
   height: 450px;
   margin-top: 60px;
@@ -151,8 +151,8 @@
   background: image-url('splash-call.jpg');
   width: 1240px;
   height: 350px;
-  color: #fff;
-  text-shadow: 0 0 3px rgba(5,5,5,.5);
+  color: $lightest-text;
+  text-shadow: 0 0 3px $shadow;
 
   &-container {
     display: flex;
@@ -217,12 +217,12 @@
       line-height: 18px;
       padding: 10px 15px;
       height: 40px;
-      color: #333;
+      color: $dark-text;
       min-width: 0;
-      border: 1px solid #e5e5e5;
+      border: 1px solid $lighter-border;
       
       &:hover {
-        border: 1px solid #ccc;
+        border: 1px solid $light-border;
       }
     }
   }
@@ -235,22 +235,22 @@
   padding: 15px 0;
   margin-bottom: 15px;
   line-height: 20px;
-  border-top: 1px solid #f2f2f2;
-  color: #ccc;
+  border-top: 1px solid $lightest-border;
+  color: $lighter-text;
   font-size: 14px;
   font-weight: 100;
   
   a {
-    color: #ccc;
+    color: $lighter-text;
     text-decoration: none;
 
     &:hover {
-      color: #999;
+      color: $light-text;
     }
   }
 
   p {
-    color: #333;
+    color: $dark-text;
     margin-top: 5px;
   }
 }

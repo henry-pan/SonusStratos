@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/session_actions";
+import { loginUser, clearErrors } from "../../actions/session_actions";
 import { openModal, closeModal } from '../../actions/modal_actions';
 import SessionForm from "./session_form";
 
@@ -14,7 +14,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   otherForm: (<button onClick={() => dispatch(openModal('signup'))}>
     Signup
   </button>),
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => {
+    dispatch(closeModal());
+    dispatch(clearErrors());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);

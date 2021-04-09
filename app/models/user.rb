@@ -7,6 +7,10 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :tracks,
+    foreign_key: :uploader_id,
+    class_name: :Track
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     if user && user.is_password?(password)

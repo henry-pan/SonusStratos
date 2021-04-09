@@ -10,21 +10,16 @@ import {
 
 import SplashContainer from "./splash/splash_container";
 import DiscoverContainer from "./discover/discover_container";
-import SignupFormContainer from './session_form/signup_form_container';
-import LoginFormContainer from './session_form/login_form_container';
 import Modal from "./modal/modal";
 import { AuthRoute } from "../util/route_util";
 
 const App = () => (
   <>
     <Modal />
-    {/* <SplashContainer /> */}
     <Switch>
-      <Route path="/discover" component={DiscoverContainer} />
-      <Route exact path="/" component={SplashContainer} />
+      <Route exact path="/discover" component={DiscoverContainer} />
+      <AuthRoute exact path="/" component={SplashContainer} />
       <Redirect to="/" />
-      {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
     </Switch>
   </>
 );

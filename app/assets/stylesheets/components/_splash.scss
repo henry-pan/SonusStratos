@@ -1,0 +1,256 @@
+.splash-content {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  background: $inner-body;
+  width: 1240px;
+  border-top: 0;
+  justify-content: center;
+}
+
+.splash-logo {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 19px;
+  background: image-url('logo-full-transparent.png');
+  width: 184px;
+  height: 46px;
+  margin: 0;
+}
+
+.splash-signin {
+  position: absolute;
+  top: 24px;
+  right: 30px;
+}
+
+.splash-top {
+  background-color: $accent;
+  width: 100%;
+  height: 4px;
+}
+
+.splash-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background: image-url('splash-banner.jpg');
+  width: 1240px;
+  height: 450px;
+  text-shadow: 0 0 3px $shadow;
+  box-shadow: inset 0 120px 40px -40px $shadow;
+
+  h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: $lightest-text;
+  }
+  
+  p {
+    max-width: 530px;
+    color: $lightest-text;
+    font-size: 18px;
+    text-align: center;
+    line-height: 25px;
+  }
+}
+
+.splash-trending {
+  width: inherit;
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.splash-trending-items {
+  display: flex;
+  width: inherit;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.splash-track {
+  width: 180px;
+  padding-bottom: 30px;
+
+  img {
+    width: 180px;
+    height: 180px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  h3 {
+    font: 12px/1.4 Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    color: $light-text;
+  }
+}
+
+.splash-devices {
+  display: flex;
+  background-color: $outer-body;
+  width: 1240px;
+  height: 450px;
+  margin-top: 60px;
+  padding: 0 70px;
+
+  figure {
+    flex-grow: 1;
+    background-image: image-url('splash-devices.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &-info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 325px;
+    margin-left: 45px;
+
+    h2 {
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 100;
+      margin-bottom: 17px;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 3px;
+        background-image: linear-gradient(90deg,#b88e06,rgb(51, 5, 158) 50%,rgb(0, 235, 252));
+        margin-top: 15px;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 100;
+      margin: 0 0 10px;
+    }
+  }
+}
+
+.splash-call {
+  display: flex;
+  background: image-url('splash-call.jpg');
+  width: 1240px;
+  height: 350px;
+  color: $lightest-text;
+  text-shadow: 0 0 3px $shadow;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    padding-left: 70px;
+    width: 520px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 24px;
+    line-height: 1.35;
+    margin: 11px 0 26px;
+  }
+
+  .button-transparent {
+    font-size: 18px;
+    line-height: 18px;
+    padding: 13px 24px;
+    height: 46px;
+    margin: 0;
+  }
+}
+
+.splash-join {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1180px;
+  height: 375px;
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    font-size: 18px;
+    height: 46px;
+    padding: 13px 23px;
+    min-width: 200px;
+    line-height: 18px;
+    margin-top: 10px;
+  }
+  
+  p {
+    margin: 5px 0;
+    
+    .button-transparent {
+      font-size: 16px;
+      line-height: 18px;
+      padding: 10px 15px;
+      height: 40px;
+      color: $dark-text;
+      min-width: 0;
+      border: 1px solid $lighter-border;
+      
+      &:hover {
+        border: 1px solid $light-border;
+      }
+    }
+  }
+}
+
+.splash-footer {
+  display: flex;
+  flex-direction: column;
+  width: 1180px;
+  padding: 15px 0;
+  margin-bottom: 15px;
+  line-height: 20px;
+  border-top: 1px solid $lightest-border;
+  color: $lighter-text;
+  font-size: 14px;
+  font-weight: 100;
+  
+  a {
+    color: $lighter-text;
+    text-decoration: none;
+
+    &:hover {
+      color: $light-text;
+    }
+  }
+
+  p {
+    color: $dark-text;
+    margin-top: 5px;
+  }
+}

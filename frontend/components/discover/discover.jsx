@@ -12,7 +12,7 @@ class Discover extends React.Component {
       <NavBarContainer />
       <div className="content">
         <div>
-          Hello.
+        {this.props.currentUser ? <h1>Welcome, {this.props.currentUser.username}!</h1> : <></>}
         </div>
       </div>
       </>

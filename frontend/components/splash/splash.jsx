@@ -14,7 +14,7 @@ export default ({ currentUser, logout, openModal }) => {
   );
   
   return (
-    <div className="content">
+    <div className="splash-content">
       <h1 className="splash-logo"></h1>
       {display}
       <div className="splash-top"></div>

@@ -20,7 +20,7 @@ const App = () => (
     <Modal />
     {/* <SplashContainer /> */}
     <Switch>
-      <AuthRoute path="/discover" component={DiscoverContainer} />
+      <Route path="/discover" component={DiscoverContainer} />
       <Route exact path="/" component={SplashContainer} />
       <Redirect to="/" />
       {/* <AuthRoute exact path="/login" component={LoginFormContainer} />

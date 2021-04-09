@@ -1,8 +1,13 @@
 .navbar {
   display: flex;
   justify-content: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 5;
   background-color: $header;
   color: $lighter-text;
+
 }
 
 .navbar-container {
@@ -27,6 +32,13 @@
   height: 46px;
 }
 
+.navbar-logo-full {
+  display: block;
+  background: image-url('logo-full.png');
+  width: 184px;
+  height: 46px;
+}
+
 .navbar-item {
   display: block;
   padding: 12px 0;
@@ -42,4 +54,28 @@
   &:hover {
     color: #eee;
   }
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+
+  button {
+    height: 26px;
+    line-height: 20px;
+    padding: 2px 11px 2px 10px;
+    margin-bottom: 2px;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+  }
+
+  .button-transparent {
+    margin-right: 12px;
+    border-color: #666;
+    &:hover {
+      border-color: #999;
+    }
+  }
+
 }

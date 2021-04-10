@@ -1,5 +1,6 @@
 import React from "react";
 import NavBarContainer from "../navbar/navbar_container";
+import DiscoverItem from "./discover_item";
 
 class Discover extends React.Component {
   constructor(props) {
@@ -12,18 +13,12 @@ class Discover extends React.Component {
 
   render() {
 
-    const tracks = this.props.tracks.map((track, i) => {
-      <li>
-        <ul>
-          <li>{track.title}</li>
-          <li>{track.description}</li>
-          <li>{track.plays}</li>
-          <li>{track.uploader_id}</li>
-        </ul>
-      </li>
-    });
 
-    console.log(this.props.tracks);
+    const tracks = this.props.tracks.map((track, i) => (
+      <li key={track.id}>
+        <DiscoverItem track={track} />
+      </li>
+    ));
 
     return (
       <>

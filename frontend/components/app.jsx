@@ -10,6 +10,7 @@ import {
 
 import SplashContainer from "./splash/splash_container";
 import DiscoverContainer from "./discover/discover_container";
+import UploadContainer from "./upload/upload_container";
 import Modal from "./modal/modal";
 import { AuthRoute } from "../util/route_util";
 
@@ -18,6 +19,7 @@ const App = () => (
     <Modal />
     <Switch>
       <Route exact path="/discover" component={DiscoverContainer} />
+      <Route exact path="/upload" component={UploadContainer} />
       <AuthRoute exact path="/" component={SplashContainer} />
       <Redirect to="/" />
     </Switch>

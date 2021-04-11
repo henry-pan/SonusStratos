@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllTracks } from '../../actions/track_actions';
+import { fetchAllTracks, updateTrack } from '../../actions/track_actions';
 import Discover from './discover';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllTracks: () => dispatch(fetchAllTracks())
+  fetchAllTracks: () => dispatch(fetchAllTracks()),
+  updateTrack: track => dispatch(updateTrack(track))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Discover);

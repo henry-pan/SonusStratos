@@ -20,7 +20,7 @@ class Upload extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const track = Object.assign({}, this.state);
-    this.props.createTrack(track);
+    this.props.createTrack(track).then(this.props.history.push("/discover"));
   }
 
   renderErrors(){

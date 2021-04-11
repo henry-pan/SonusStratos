@@ -1,6 +1,7 @@
 import React from "react";
 import NavBarContainer from "../navbar/navbar_container";
 import TrackItemTile from "../track_item/track_item_tile";
+import TrackItemList from "../track_item/track_item_list";
 
 class Discover extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Discover extends React.Component {
 
     const tracks = this.props.tracks.map((track, i) => (
       <li key={track.id}>
-        <TrackItemTile track={track} />
+        <TrackItemList track={track} updateTrack={this.props.updateTrack}/>
       </li>
     ));
 

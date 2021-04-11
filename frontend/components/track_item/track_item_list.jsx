@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class TrackItemList extends React.Component {
   constructor(props){
@@ -20,14 +21,19 @@ class TrackItemList extends React.Component {
   render() {
 
     return (
-      <div>
-        <img src={window.nierAutomata}/>
-        <div>
-          <button onClick={this.handlePlay}>Play</button>
-          <span>{this.props.track.uploader}</span>
-          <h1>{this.props.track.title}</h1>
+      <div className="list-container">
+        <Link className="list-album-art" to="/"><img src={window.nierAutomata}/></Link>
+        
+        <div className="list-detail">
+          <div className="list-title-container">
+            <button className="list-play-button" onClick={this.handlePlay}>▶</button>
+            <div className="list-title">
+              <span>{this.props.track.uploader}</span>
+              <h1>{this.props.track.title}</h1>
+            </div>
+          </div>
+          <span>▶ {this.props.track.plays}</span>
         </div>
-        <a>Plays: {this.props.track.plays}</a>
       </div>
     )
   }

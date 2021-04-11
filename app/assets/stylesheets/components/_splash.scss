@@ -76,7 +76,6 @@
 
 .splash-trending-items {
   display: flex;
-  width: inherit;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 19px;
@@ -87,9 +86,10 @@
   padding-bottom: 30px;
   
   img {
-    width: 178x;
-    height: 178px;
+    width: 180x;
+    height: 180px;
     border: 1px solid rgba(0,0,0,.1);
+    box-sizing: border-box;
   }
 
   h2 {

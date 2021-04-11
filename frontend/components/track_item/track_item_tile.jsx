@@ -1,6 +1,6 @@
 import React from "react";
 
-const DiscoverItem = props => {
+const TrackItemTile = props => {
 
   return (
     <div>
@@ -16,4 +16,4 @@ const DiscoverItem = props => {
   )
 }
 
-export default DiscoverItem;
+export default TrackItemTile;

@@ -24,9 +24,15 @@ class Discover extends React.Component {
       <>
       <NavBarContainer />
       <div className="content">
-        <div>
+        <div className="content-main">
         {this.props.currentUser ? <h1>Welcome, {this.props.currentUser.username}!</h1> : <h1>Explore music.</h1>}
         <ul>{tracks}</ul>
+        </div>
+        <div className="content-sidebar">
+          <footer className="content-footer">
+            <span><a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a></span>
+            <p>Language: English (US)</p>
+          </footer>
         </div>
       </div>
       </>

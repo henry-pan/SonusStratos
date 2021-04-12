@@ -29,7 +29,7 @@ class Discover extends React.Component {
         <ul>{tracks}</ul>
         </div>
         <div className="content-sidebar">
-          <footer className="content-footer">
+          <footer className={`content-footer content-footer-discover`}>
             <span><a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a></span>
             <p>Language: English (US)</p>
           </footer>

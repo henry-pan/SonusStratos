@@ -38,14 +38,20 @@
   
   a {
     color: $lighter-text;
-
+    
     &:hover {
       color: $light-text;
     }
   }
-
+  
   p {
     color: $dark-text;
     margin-top: 5px;
   }
+  
+}
+
+.content-footer-discover {
+  position: fixed;
+  right: 330px;
 }

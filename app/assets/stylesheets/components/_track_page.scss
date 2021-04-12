@@ -1,0 +1,73 @@
+.track-player {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 46px;
+  background: linear-gradient(90deg,#3dd8ff, #006a81);
+
+  width: 1200px;
+  height: 340px;
+  padding: 20px;
+  border-top: 0;
+  justify-content: space-between;
+
+  &+.content {
+    margin-top: 0;
+  }
+}
+
+.track-player-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-player-title-container {
+  display: flex;
+  width: 650px;
+  margin: 10px 10px;
+}
+
+.track-player-play-button {
+  width: 60px;
+  height: 60px;
+  background-color: $accent;
+  border-radius: 50%;
+  margin: 1px 0;
+  padding: 0;
+  margin-right: 11px;
+}
+
+.track-player-title {
+  display: flex;
+  flex-direction: column;
+  span {
+    background-color: rgba(0,0,0,.8);
+    color: $lighter-text;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 100;
+    padding: 2px 7px 3px;
+    margin-bottom: 5px;
+    width: min-content;
+  }
+  h1 {
+    background-color: rgba(0,0,0,.8);
+    color: $lightest-text;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 100;
+    box-sizing: border-box;
+    padding: 4px 7px;
+  }
+}
+
+.track-player-art {
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(0,0,0,.1);
+  box-sizing: border-box;
+}
+
+.track-comments {
+  width: 820px;
+}

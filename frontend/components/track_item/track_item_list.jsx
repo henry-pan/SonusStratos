@@ -9,10 +9,7 @@ class TrackItemList extends React.Component {
       alreadyPlayed: false,
       playing: false
     };
-
-    console.log(this.state);
-
-
+    
     this.handlePlay = this.handlePlay.bind(this);
   }
 
@@ -31,7 +28,7 @@ class TrackItemList extends React.Component {
 
     return (
       <div className="list-container">
-        <Link className="list-album-art" to="/"><img src={window.nierAutomata}/></Link>
+        <Link className="list-album-art" to={`/tracks/${this.props.track.id}`}><img src={window.nierAutomata}/></Link>
         
         <div className="list-detail">
           <div className="list-title-container">
@@ -40,7 +37,7 @@ class TrackItemList extends React.Component {
             </button>
             <div className="list-title">
               <span>{this.props.track.uploader}</span>
-              <h1>{this.props.track.title}</h1>
+              <h1><Link to={`/tracks/${this.props.track.id}`}>{this.props.track.title}</Link></h1>
             </div>
           </div>
           <span>▶ {this.props.track.plays}</span>

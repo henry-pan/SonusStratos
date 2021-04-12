@@ -111,23 +111,6 @@
   display: flex;
   flex-direction: column;
   width: 120px;
-
-  span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    word-break: normal;
-    font-size: 14px;
-    line-height: 1.3;
-
-    a {
-      color: $dark-text;
-    }
-
-    a:hover {
-      color: #000;
-    }
-  }
 }
 
 .track-uploader-profile-pic {
@@ -142,6 +125,22 @@
   margin-bottom: 5px;
 }
 
+.track-uploader-username {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: normal;
+  font-size: 14px;
+  line-height: 1.3;
+  
+  color: $dark-text;
+
+  &:hover {
+    color: #000;
+  }
+  
+}
+
 .track-text-container {
   display: flex;
   flex-direction: column;
@@ -153,9 +152,9 @@
   font-size: 14px;
 }
 
-.track-comments {
+// .track-comments {
 
-}
+// }
 
 .track-comments-empty {
   padding: 40px 0;

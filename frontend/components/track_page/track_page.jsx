@@ -52,6 +52,18 @@ class TrackPage extends React.Component {
       </div>
     );
 
+    const isTrackOwner = (this.props.currentUser.id === this.props.track.uploader_id);
+
+    const actionButtons = isTrackOwner ? (
+      <>
+        <button className="track-action-button" onClick={this.handleEdit}>Edit</button>
+        <button className="track-action-button" onClick={this.handleDelete}>Delete</button>
+      </>
+    ) : (
+      <>
+      </>
+    );
+
     return (
       <>
       <NavBarContainer />
@@ -74,8 +86,7 @@ class TrackPage extends React.Component {
         <div className="content-main">
           <div className="track-interface">
             <div className="track-button-container">
-              <button className="track-action-button" onClick={this.handleEdit}>Edit</button>
-              <button className="track-action-button" onClick={this.handleDelete}>Delete</button>
+              {actionButtons}
             </div>
             <div className="track-stat-container">
               <span>▶ {this.props.track.plays}</span>
@@ -84,15 +95,11 @@ class TrackPage extends React.Component {
           <div className="track-about">
             <div className="track-uploader">
               <Link className="track-uploader-profile-pic" to={`/users/${this.props.track.uploader_id}`}/>
-              <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
+              <Link className="track-uploader-username" to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link>
             </div>
             <div className="track-text-container">
-              <div className="track-description">
-                <p>{this.props.track.description}</p>
-              </div>
-              <div className="track-comments">
-                {comments}
-              </div>
+              <p className="track-description">{this.props.track.description}</p>
+              {comments}
             </div>
           </div>
         </div>

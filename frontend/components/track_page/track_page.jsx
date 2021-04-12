@@ -1,5 +1,6 @@
 import React from "react";
 import NavBarContainer from "../navbar/navbar_container";
+import { Link } from "react-router-dom";
 
 class TrackPage extends React.Component {
   constructor(props) {
@@ -65,15 +66,26 @@ class TrackPage extends React.Component {
         <div className="content-main">
           <div className="track-interface">
             <div className="track-button-container">
-              <button onClick={this.handleEdit}>Edit</button>
-              <button onClick={this.handleDelete}>Delete</button>
+              <button className="track-action-button" onClick={this.handleEdit}>Edit</button>
+              <button className="track-action-button" onClick={this.handleDelete}>Delete</button>
             </div>
             <div className="track-stat-container">
               <span>▶ {this.props.track.plays}</span>
             </div>
           </div>
-          <div className="track-comments">
-            <p>Comments would go here.</p>
+          <div className="track-about">
+            <div className="track-uploader">
+              <Link className="track-uploader-profile-pic" to={`/users/${this.props.track.uploader_id}`}/>
+              <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
+            </div>
+            <div className="track-text-container">
+              <div className="track-description">
+                <p>{this.props.track.description}</p>
+              </div>
+              <div className="track-comments">
+                <p>Comments would go here.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="content-sidebar">

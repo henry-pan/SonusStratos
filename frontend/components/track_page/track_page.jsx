@@ -44,6 +44,14 @@ class TrackPage extends React.Component {
 
     if (!this.props.track) return null;
 
+    const comments = (
+      <div className="track-comments-empty">
+        <div className="track-comments-empty-image"></div>
+        <h3>Seems a little quiet over here</h3>
+        <h4>Be the first to comment on this track</h4>
+      </div>
+    );
+
     return (
       <>
       <NavBarContainer />
@@ -83,7 +91,7 @@ class TrackPage extends React.Component {
                 <p>{this.props.track.description}</p>
               </div>
               <div className="track-comments">
-                <p>Comments would go here.</p>
+                {comments}
               </div>
             </div>
           </div>

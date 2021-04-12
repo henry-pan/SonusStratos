@@ -59,6 +59,7 @@
   display: flex;
   align-items: center;
 
+
   button {
     height: 26px;
     line-height: 20px;
@@ -77,4 +78,22 @@
     }
   }
 
+}
+
+.navbar-profile {
+  display: flex;
+  width: max-content;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navbar-profile-pic {
+  display: block;
+  background: image-url('profile/stratos.jpg');
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-size: cover;
+  margin-top: -2px;
+  margin-right: 11px;
 }

@@ -17,7 +17,10 @@ class NavBar extends React.Component {
     const navbar = this.props.currentUser ? (
       <nav className="navbar-right">
         <Link className="navbar-item" to="/upload">Upload</Link>
-        <Link className="navbar-item" to="/">{this.props.currentUser.username}</Link>
+        <Link className={`navbar-item navbar-profile`} to="/">
+            <span className="navbar-profile-pic"></span>
+            {this.props.currentUser.username}
+        </Link>
         <button onClick={this.props.logout}>Log Out</button>
       </nav>
     ) : (
@@ -35,7 +38,7 @@ class NavBar extends React.Component {
         <div className="navbar-container">
           <nav className="navbar-left">
             {navlogo}
-            <Link className="navbar-item" to="/">Home</Link>
+            <Link className="navbar-item" to="/discover">Home</Link>
           </nav>
           {navbar}
         </div>

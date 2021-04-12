@@ -71,6 +71,17 @@
   box-sizing: border-box;
 }
 
+.track-interface {
+  display: flex;
+  justify-content: space-between;
+  width: 820px;
+}
+
+.track-stat-container {
+  display: flex;
+  align-items: center;
+}
+
 .track-comments {
   width: 820px;
 }

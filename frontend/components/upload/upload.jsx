@@ -73,7 +73,7 @@ class Upload extends React.Component {
           {this.props.currentUser && uploadForm}
         </div>
         <footer className="upload-footer">
-          <p>By uploading, you agree to not upload inappropriate tracks or copyrighted materials... or else.</p>
+          <p>By uploading, you agree to not upload inappropriate tracks or illegal content... or else.</p>
           <span><a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a></span>
           <p>Language: English (US)</p>
         </footer>

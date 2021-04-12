@@ -11,6 +11,8 @@ class TrackPage extends React.Component {
     };
     
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handlePlay() {
@@ -24,8 +26,17 @@ class TrackPage extends React.Component {
     this.setState({ playing: !this.state.playing });
   }
 
+  handleEdit() {
+
+  }
+
+  handleDelete() {
+    this.props.deleteTrack(this.props.track.id).then(this.props.history.push("/discover"));
+  }
+
   componentDidMount() {
     this.props.fetchTrack(this.props.match.params.trackId);
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -52,6 +63,15 @@ class TrackPage extends React.Component {
       </div>
       <div className="content">
         <div className="content-main">
+          <div className="track-interface">
+            <div className="track-button-container">
+              <button onClick={this.handleEdit}>Edit</button>
+              <button onClick={this.handleDelete}>Delete</button>
+            </div>
+            <div className="track-stat-container">
+              <span>▶ {this.props.track.plays}</span>
+            </div>
+          </div>
           <div className="track-comments">
             <p>Comments would go here.</p>
           </div>

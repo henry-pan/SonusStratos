@@ -7,6 +7,9 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  # Active Storage
+  has_one_attached :profile_pic
+
   has_many :tracks,
     foreign_key: :uploader_id,
     class_name: :Track

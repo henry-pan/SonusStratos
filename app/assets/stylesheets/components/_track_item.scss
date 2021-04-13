@@ -24,6 +24,11 @@
   min-height: 43px;
 }
 
+.list-detail-title-date {
+  display: flex;
+  justify-content: space-between;
+}
+
 .list-title-container {
   display: flex;
 }
@@ -59,7 +64,23 @@
     background-color: #016c82;
   }
 }
-  
+
+.list-uploaded-ago {
+  color: $lighter-text;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.list-stats {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: $light-text;
+  font-size: 11px;
+  line-height: 12px;
+}
+
 .list-album-art {
   img {
     width: 160x;

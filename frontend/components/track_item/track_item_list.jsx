@@ -30,7 +30,8 @@ class TrackItemList extends React.Component {
         <Link className="list-album-art" to={`/tracks/${this.props.track.id}`}><img src={window.nierAutomata}/></Link>
         
         <div className="list-detail">
-          <div className="list-title-container">
+          <div className="list-detail-title-date">
+            <div className="list-title-container">
             <button className="list-play-button" onClick={this.handlePlay}>
               {this.state.playing ? "❚❚" : "▶"}
             </button>
@@ -38,9 +39,14 @@ class TrackItemList extends React.Component {
               <span>{this.props.track.uploader}</span>
               <h1><Link to={`/tracks/${this.props.track.id}`}>{this.props.track.title}</Link></h1>
             </div>
+            </div>
+            <div className="list-uploaded-ago">
+              <span>{this.props.track.posted}</span>
+            </div>
           </div>
-          <span>▶ {this.props.track.plays}</span>
-          <span>{this.props.track.posted}</span>
+          <div className="list-stats">
+            <span>▶ {this.props.track.plays}</span>
+          </div>
         </div>
       </div>
     )

@@ -12,12 +12,10 @@ import SplashContainer from "./splash/splash_container";
 import DiscoverContainer from "./discover/discover_container";
 import UploadContainer from "./upload/upload_container";
 import TrackPageContainer from "./track_page/track_page_container";
-import Modal from "./modal/modal";
 import { AuthRoute } from "../util/route_util";
 
 const App = () => (
   <>
-    <Modal />
     <Switch>
       <Route exact path="/discover" component={DiscoverContainer} />
       <Route exact path="/upload" component={UploadContainer} />

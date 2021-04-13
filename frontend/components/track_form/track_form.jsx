@@ -4,15 +4,24 @@ import { withRouter } from "react-router-dom";
 class TrackForm extends React.Component {
   constructor(props) {
     super(props);
-
+    
     let uploaderId = undefined;
     if (this.props.currentUser) uploaderId = this.props.currentUser.id;
 
-    this.state = {
-      title: "",
-      description: "",
-      uploader_id: uploaderId
-    };
+    if (this.props.track) {
+      this.state = {
+        id: this.props.track.id,
+        title: this.props.track.title,
+        description: this.props.track.description,
+        uploader_id: uploaderId
+      };
+    } else {
+      this.state = {
+        title: "",
+        description: "",
+        uploader_id: uploaderId
+      };
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,9 +33,12 @@ class TrackForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const track = Object.assign({}, this.state);
-    this.props.processForm(track).then(this.props.history.push("/discover"));
+    if (this.props.formType === "upload") {
+      this.props.processForm(track).then(this.props.history.push("/discover"));
+    } else {
+      this.props.processForm(track).then(this.props.closeModal());
+    }
   }
-
 
   renderErrors(){
     return (
@@ -63,8 +75,6 @@ class TrackForm extends React.Component {
       </div>
     );
   }
-
 }
 
 export default withRouter(TrackForm);
-

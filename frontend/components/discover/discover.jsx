@@ -2,6 +2,7 @@ import React from "react";
 import NavBarContainer from "../navbar/navbar_container";
 import TrackItemTile from "../track_item/track_item_tile";
 import TrackItemList from "../track_item/track_item_list";
+import Modal from "../modal/modal";
 
 class Discover extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class Discover extends React.Component {
     return (
       <>
       <NavBarContainer />
+      <Modal />
       <div className="content">
         <div className="content-main">
         {this.props.currentUser ? <h1>Welcome, {this.props.currentUser.username}!</h1> : <h1>Explore music.</h1>}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import Modal from "../modal/modal";
 
 export default ({ currentUser, logout, openModal }) => {
   const display = currentUser ? (
@@ -15,6 +15,7 @@ export default ({ currentUser, logout, openModal }) => {
   
   return (
     <div className="splash-content">
+      <Modal />
       <h1 className="splash-logo"></h1>
       {display}
       <div className="splash-top"></div>

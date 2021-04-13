@@ -1,14 +1,16 @@
 import React from "react";
-import NavBarContainer from "../navbar/navbar_container";
 import { Link } from "react-router-dom";
+import NavBarContainer from "../navbar/navbar_container";
+import Modal from "../modal/modal";
 
 class TrackPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
+
     this.state = {
       alreadyPlayed: false,
-      playing: false
+      playing: false,
+      editing: false
     };
     
     this.handlePlay = this.handlePlay.bind(this);
@@ -28,7 +30,7 @@ class TrackPage extends React.Component {
   }
 
   handleEdit() {
-
+    this.props.openModal("edit");
   }
 
   handleDelete() {
@@ -52,7 +54,7 @@ class TrackPage extends React.Component {
       </div>
     );
 
-    const isTrackOwner = (this.props.currentUser.id === this.props.track.uploader_id);
+    const isTrackOwner = this.props.currentUser && (this.props.currentUser.id === this.props.track.uploader_id);
 
     const actionButtons = isTrackOwner ? (
       <>
@@ -67,6 +69,7 @@ class TrackPage extends React.Component {
     return (
       <>
       <NavBarContainer />
+      <Modal trackId={this.props.track.id} />
       <div className="track-player">
         <div className="track-player-details-container">
           <div className="track-player-title-container">

@@ -1,6 +1,7 @@
 import React from "react";
 import NavBarContainer from "../navbar/navbar_container";
 import CreateTrackFormContainer from "../track_form/create_track_form_container"
+import Modal from "../modal/modal";
 
 class Upload extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Upload extends React.Component {
     return (
       <>
       <NavBarContainer />
+      <Modal />
       <div className="upload-content">
         <nav className="upload-nav">
           <span className="upload-nav-item">Upload</span>

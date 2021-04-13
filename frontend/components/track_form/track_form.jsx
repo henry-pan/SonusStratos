@@ -23,11 +23,21 @@ class TrackForm extends React.Component {
       };
     }
 
+    this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(key, e) {
     this.setState({ [key]: e.target.value });
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    if (this.props.formType === "upload") {
+      this.props.history.push("/discover");
+    } else {
+      this.props.closeModal();
+    }
   }
 
   handleSubmit(e) {
@@ -51,6 +61,8 @@ class TrackForm extends React.Component {
   }
 
   render() {
+    const submitText = this.props.formType === "upload" ? "Upload" : "Save Changes";
+
     return (
       <div className="upload-form-container">
         <nav className="upload-form-nav">
@@ -69,7 +81,8 @@ class TrackForm extends React.Component {
         <div className="upload-form-submit">
           <span className="upload-form-submit-req">Required fields</span>
           <div className="upload-form-button-container">
-            <button form="submit-upload-form" type="submit">Save</button>
+            <button className="button-nostyle" onClick={this.handleCancel}>Cancel</button>
+            <button className="button-track-form" form="submit-upload-form" type="submit">{submitText}</button>
           </div>
         </div>
       </div>

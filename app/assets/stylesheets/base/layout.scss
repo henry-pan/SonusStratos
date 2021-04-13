@@ -41,3 +41,20 @@ button {
     border: 1px solid $lighter-border;
   }
 }
+
+.button-track-form {
+  height: 26px;
+  padding: 2px 11px 2px 10px;
+  margin: 0;
+  line-height: 20px;
+}
+
+.button-nostyle {
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  color: $dark-text;
+  padding: 2px 11px 2px 10px;
+  height: 26px;
+  line-height: 20px;
+}

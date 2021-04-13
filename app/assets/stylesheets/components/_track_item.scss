@@ -37,10 +37,15 @@
   display: flex;
   flex-direction: column;
   span {
-    color: $light-text;
     font-size: 12px;
     line-height: 16px;
     font-weight: 100;
+    a {
+      color: $light-text;
+      &:hover{
+        color: $dark-text;
+      }
+    }
   }
   h1 {
     font-size: 15px;
@@ -48,6 +53,9 @@
     font-weight: 100;
     a {
       color: $dark-text;
+      &:hover{
+        color: #000;
+      }
     }
   }
 }

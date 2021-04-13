@@ -36,7 +36,7 @@ class TrackItemList extends React.Component {
               {this.state.playing ? "❚❚" : "▶"}
             </button>
             <div className="list-title">
-              <span>{this.props.track.uploader}</span>
+              <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
               <h1><Link to={`/tracks/${this.props.track.id}`}>{this.props.track.title}</Link></h1>
             </div>
             </div>

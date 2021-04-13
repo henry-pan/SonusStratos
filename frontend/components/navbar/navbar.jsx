@@ -17,7 +17,7 @@ class NavBar extends React.Component {
     const navbar = this.props.currentUser ? (
       <nav className="navbar-right">
         <Link className="navbar-item" to="/upload">Upload</Link>
-        <Link className={`navbar-item navbar-profile`} to="/">
+        <Link className={`navbar-item navbar-profile`} to={`/users/${this.props.currentUser.id}`}>
             <span className="navbar-profile-pic"></span>
             {this.props.currentUser.username}
         </Link>

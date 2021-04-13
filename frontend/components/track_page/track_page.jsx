@@ -77,7 +77,7 @@ class TrackPage extends React.Component {
               {this.state.playing ? "❚❚" : "▶"}
             </button>
             <div className="track-player-title">
-              <span>{this.props.track.uploader}</span>
+              <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
               <h1>{this.props.track.title}</h1>
             </div>
           </div>

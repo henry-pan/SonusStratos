@@ -8,6 +8,10 @@ class Upload extends React.Component {
     super(props);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   render() {
     return (
       <>

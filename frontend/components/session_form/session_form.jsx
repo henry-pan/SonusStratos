@@ -6,6 +6,7 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: "",
+      email: "",
       password: ""
     };
 

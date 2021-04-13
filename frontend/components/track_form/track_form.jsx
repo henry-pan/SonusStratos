@@ -34,9 +34,9 @@ class TrackForm extends React.Component {
     e.preventDefault();
     const track = Object.assign({}, this.state);
     if (this.props.formType === "upload") {
-      this.props.processForm(track).then(this.props.history.push("/discover"));
+      this.props.processForm(track).then(() => this.props.history.push("/discover"));
     } else {
-      this.props.processForm(track).then(this.props.closeModal());
+      this.props.processForm(track).then(this.props.closeModal);
     }
   }
 

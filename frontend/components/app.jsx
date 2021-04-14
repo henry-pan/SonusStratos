@@ -9,20 +9,21 @@ import {
 } from 'react-router-dom';
 
 import SplashContainer from "./splash/splash_container";
-import SignupFormContainer from './session_form/signup_form_container';
-import LoginFormContainer from './session_form/login_form_container';
-import Modal from "./modal/modal";
+import DiscoverContainer from "./discover/discover_container";
+import UploadContainer from "./upload/upload_container";
+import TrackPageContainer from "./track_page/track_page_container";
+import UserPageContainer from "./user_page/user_page_container";
 import { AuthRoute } from "../util/route_util";
 
 const App = () => (
   <>
-    <Modal />
-    {/* <SplashContainer /> */}
     <Switch>
-      <Route exact path="/" component={SplashContainer}/>
+      <Route exact path="/discover" component={DiscoverContainer} />
+      <Route exact path="/upload" component={UploadContainer} />
+      <Route exact path="/tracks/:trackId" component={TrackPageContainer} />
+      <Route exact path="/users/:userId" component={UserPageContainer} />
+      <AuthRoute exact path="/" component={SplashContainer} />
       <Redirect to="/" />
-      {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
     </Switch>
   </>
 );

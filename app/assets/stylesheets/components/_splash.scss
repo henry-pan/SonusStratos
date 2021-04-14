@@ -1,4 +1,4 @@
-.content {
+.splash-content {
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -76,18 +76,20 @@
 
 .splash-trending-items {
   display: flex;
-  width: inherit;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 19px;
 }
 
 .splash-track {
   width: 180px;
   padding-bottom: 30px;
-
+  
   img {
-    width: 180px;
+    width: 180x;
     height: 180px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-sizing: border-box;
   }
 
   h2 {
@@ -242,7 +244,6 @@
   
   a {
     color: $lighter-text;
-    text-decoration: none;
 
     &:hover {
       color: $light-text;

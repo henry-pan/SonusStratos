@@ -18,7 +18,7 @@
   z-index: 3;
 }
 
-.modal-child {
+.modal-session {
   display: flex;
   position: absolute;
   justify-content: center;
@@ -30,6 +30,20 @@
   background-color: $inner-body;
   width: 450px;
   height: 550px;
+}
+
+.modal-edit-track {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $inner-body;
+  width: 800px;
+  min-height: 390px;
 }
 
 .modal-social-login {

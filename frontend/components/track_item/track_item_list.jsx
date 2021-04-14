@@ -27,7 +27,7 @@ class TrackItemList extends React.Component {
   render() {
     return (
       <div className="list-container">
-        <Link className="list-album-art" to={`/tracks/${this.props.track.id}`}><img src={window.nierAutomata}/></Link>
+        <Link className="list-album-art" to={`/tracks/${this.props.track.id}`}><img src={this.props.track.albumArt}/></Link>
         
         <div className="list-detail">
           <div className="list-detail-title-date">

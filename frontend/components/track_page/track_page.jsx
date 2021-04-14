@@ -82,7 +82,7 @@ class TrackPage extends React.Component {
             </div>
           </div>
         </div>
-        <img className="track-player-art" src={window.nierAutomata}/>
+        <img className="track-player-art" src={this.props.track.albumArt}/>
 
       </div>
       <div className="content">
@@ -97,7 +97,9 @@ class TrackPage extends React.Component {
           </div>
           <div className="track-about">
             <div className="track-uploader">
-              <Link className="track-uploader-profile-pic" to={`/users/${this.props.track.uploader_id}`}/>
+              <Link  to={`/users/${this.props.track.uploader_id}`}>
+                <img className="track-uploader-profile-pic" src={this.props.track.uploaderPic} />
+              </Link>
               <Link className="track-uploader-username" to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link>
             </div>
             <div className="track-text-container">

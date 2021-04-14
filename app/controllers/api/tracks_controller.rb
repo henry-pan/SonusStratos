@@ -36,7 +36,7 @@ class Api::TracksController < ApplicationController
 
   private
   def track_params
-    params.require(:track).permit(:title,:description,:plays,:uploader_id)
+    params.require(:track).permit(:title,:description,:plays,:uploader_id,:album_art,:audio_file)
   end
 
 end

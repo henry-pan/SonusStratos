@@ -14,11 +14,13 @@ class NavBar extends React.Component {
       <Link className="navbar-logo-full" to="/" />
     );
 
+    console.log(this.props.currentUser);
+
     const navbar = this.props.currentUser ? (
       <nav className="navbar-right">
         <Link className="navbar-item" to="/upload">Upload</Link>
         <Link className={`navbar-item navbar-profile`} to={`/users/${this.props.currentUser.id}`}>
-            <span className="navbar-profile-pic"></span>
+            <img className="navbar-profile-pic" src={this.props.currentUser.profilePic} />
             {this.props.currentUser.username}
         </Link>
         <button onClick={this.props.logout}>Log Out</button>

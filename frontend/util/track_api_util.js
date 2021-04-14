@@ -12,15 +12,27 @@ export const fetchTrack = trackId => (
   })
 );
 
-export const createTrack = track => (
+export const createTrack = formData => (
   $.ajax({
     method: "POST",
     url: "/api/tracks",
-    data: { track }
+    data: formData,
+    contentType: false,
+    processData: false
   })
 );
 
-export const updateTrack = track => (
+export const updateTrack = (track, formData) => (
+  $.ajax({
+    method: "PATCH",
+    url: `/api/tracks/${track.id}`,
+    data: formData,
+    contentType: false,
+    processData: false
+  })
+);
+
+export const updateTrackNoForm = track => (
   $.ajax({
     method: "PATCH",
     url: `/api/tracks/${track.id}`,

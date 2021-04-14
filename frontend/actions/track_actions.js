@@ -51,6 +51,10 @@ export const updateTrack = track => dispatch =>
   .then(track => dispatch(receiveTrack(track)))
   .fail(errors => dispatch(receiveTrackErrors(errors.responseJSON)));
 
+export const updateTrackNoForm = track => dispatch =>
+  TrackAPIUtil.updateTrackNoForm(track)
+  .then(track => dispatch(receiveTrack(track)));
+
 export const deleteTrack = trackId => dispatch =>
   TrackAPIUtil.deleteTrack(trackId)
   .then(track => dispatch(removeTrack(track)))

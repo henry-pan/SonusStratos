@@ -13,22 +13,38 @@ class TrackForm extends React.Component {
         id: this.props.track.id,
         title: this.props.track.title,
         description: this.props.track.description,
-        uploader_id: uploaderId
+        uploader_id: uploaderId,
+        albumArt: null,
+        albumArtPreview: this.props.track.albumArt
       };
     } else {
       this.state = {
         title: "",
         description: "",
-        uploader_id: uploaderId
+        uploader_id: uploaderId,
+        albumArt: null,
+        albumArtPreview: null
       };
     }
 
+    this.handleFile = this.handleFile.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(key, e) {
     this.setState({ [key]: e.target.value });
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({albumArt: file, albumArtPreview: fileReader.result});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   handleCancel(e) {
@@ -42,11 +58,19 @@ class TrackForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const track = Object.assign({}, this.state);
+
+    const formData = new FormData();
+    if (this.props.track) formData.append('track[id]', this.state.id);
+    formData.append('track[title]', this.state.title);
+    formData.append('track[description]', this.state.description);
+    formData.append('track[uploader_id]', this.props.currentUser.id);
+    if (this.state.albumArt) formData.append('track[album_art]', this.state.albumArt);
+    
+    // const track = Object.assign({}, this.state);
     if (this.props.formType === "upload") {
-      this.props.processForm(track).then(() => this.props.history.push("/discover"));
+      this.props.processForm(formData).then(() => this.props.history.push("/discover"));
     } else {
-      this.props.processForm(track).then(this.props.closeModal);
+      this.props.processForm(this.props.track, formData).then(this.props.closeModal);
     }
   }
 
@@ -62,6 +86,11 @@ class TrackForm extends React.Component {
 
   render() {
     const submitText = this.props.formType === "upload" ? "Upload" : "Save Changes";
+    const previewArt = this.state.albumArtPreview ? (
+      <img className="upload-form-art" src={this.state.albumArtPreview}/>
+    ) : (
+      <img className="upload-form-art-empty" />
+    );
 
     return (
       <div className="upload-form-container">
@@ -69,12 +98,13 @@ class TrackForm extends React.Component {
           <span className="upload-form-nav-item">Basic info</span>
         </nav>
         <div className="upload-form-body">
-          <img className="upload-form-art" src={window.nierAutomata}/>
+          {previewArt}
           <form id="submit-upload-form" className="upload-form-form" onSubmit={this.handleSubmit}>
             <span className="upload-form-label-req">Title</span>
             <input className="upload-form-input" onChange={(e) => this.handleInput("title", e)} type="text" value={this.state.title} placeholder="Name your track"/>
             <span>Description</span>
             <textarea className="upload-form-input" onChange={(e) => this.handleInput("description", e)} value={this.state.description} placeholder="Describe your track"/>
+            <input type="file" onChange={this.handleFile} />
             {this.renderErrors()}
           </form>
         </div>

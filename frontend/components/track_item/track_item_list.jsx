@@ -15,7 +15,7 @@ class TrackItemList extends React.Component {
 
   handlePlay() {
     if (!this.state.alreadyPlayed) {
-      this.props.updateTrack({
+      this.props.updateTrackNoForm({
         id: this.props.track.id,
         plays: this.props.track.plays + 1
       });

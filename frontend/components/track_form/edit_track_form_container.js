@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  processForm: track => dispatch(updateTrack(track)),
+  processForm: (track, formData) => dispatch(updateTrack(track, formData)),
   clearErrors: () => dispatch(clearErrors()),
   closeModal: () => {
     dispatch(closeModal());

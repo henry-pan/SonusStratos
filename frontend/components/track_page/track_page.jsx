@@ -20,7 +20,7 @@ class TrackPage extends React.Component {
 
   handlePlay() {
     if (!this.state.alreadyPlayed) {
-      this.props.updateTrack({
+      this.props.updateTrackNoForm({
         id: this.props.track.id,
         plays: this.props.track.plays + 1
       });
@@ -97,7 +97,7 @@ class TrackPage extends React.Component {
           </div>
           <div className="track-about">
             <div className="track-uploader">
-              <Link  to={`/users/${this.props.track.uploader_id}`}>
+              <Link to={`/users/${this.props.track.uploader_id}`}>
                 <img className="track-uploader-profile-pic" src={this.props.track.uploaderPic} />
               </Link>
               <Link className="track-uploader-username" to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link>

@@ -14,8 +14,6 @@ class NavBar extends React.Component {
       <Link className="navbar-logo-full" to="/" />
     );
 
-    console.log(this.props.currentUser);
-
     const navbar = this.props.currentUser ? (
       <nav className="navbar-right">
         <Link className="navbar-item" to="/upload">Upload</Link>

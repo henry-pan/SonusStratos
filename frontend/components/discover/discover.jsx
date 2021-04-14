@@ -17,7 +17,7 @@ class Discover extends React.Component {
 
     const tracks = this.props.tracks.map((track, i) => (
       <li key={track.id}>
-        <TrackItemList track={track} updateTrack={this.props.updateTrack}/>
+        <TrackItemList track={track} updateTrackNoForm={this.props.updateTrackNoForm}/>
       </li>
     ));
 

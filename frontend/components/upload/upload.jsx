@@ -6,17 +6,56 @@ import Modal from "../modal/modal";
 class Upload extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      audioFile: null,
+      title: ""
+    }
+
+    this.handleFile = this.handleFile.bind(this);
   }
 
   componentWillUnmount() {
     this.props.clearErrors();
   }
 
+  handleFile(e) {
+    e.preventDefault();
+
+    this.setState({
+      audioFile: e.currentTarget.files[0],
+      title: e.currentTarget.files[0].name
+    });
+  }
+
   render() {
 
     const notLoggedInUpload = (
-      <h1>You need to be signed in to upload.</h1>
+      <div className="upload-not-logged-in">
+        <h1>Please sign in to upload a track.</h1>
+      </div>
     );
+
+    const uploadTrack = (
+      <div className="upload-track">
+        <h1>Select a track to upload</h1>
+        <input id="audio-upload" type="file" accept=".mp3, .ogg" onChange={this.handleFile} />
+        <label htmlFor="audio-upload" className="upload-track-button">
+          Upload Track
+        </label>
+      </div>
+    );
+
+    let uploadStage;
+    if (this.props.currentUser) {
+      if (this.state.audioFile) {
+        uploadStage = <CreateTrackFormContainer audioFile={this.state.audioFile} title={this.state.title}/>
+      } else {
+        uploadStage = uploadTrack;
+      }
+    } else {
+      uploadStage = notLoggedInUpload;
+    }
 
     return (
       <>
@@ -27,7 +66,7 @@ class Upload extends React.Component {
           <span className="upload-nav-item">Upload</span>
         </nav>
         <div className="upload-container">
-          {this.props.currentUser ? <CreateTrackFormContainer /> : notLoggedInUpload}
+          {uploadStage}
         </div>
         <footer className="upload-footer">
           <p>By uploading, you agree to not upload inappropriate tracks or illegal content... or else.</p>

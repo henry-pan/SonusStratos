@@ -19,11 +19,12 @@ class TrackForm extends React.Component {
       };
     } else {
       this.state = {
-        title: "",
+        title: this.props.title,
         description: "",
         uploader_id: uploaderId,
         albumArt: null,
-        albumArtPreview: null
+        albumArtPreview: null,
+        audioFile: this.props.audioFile
       };
     }
 
@@ -65,6 +66,7 @@ class TrackForm extends React.Component {
     formData.append('track[description]', this.state.description);
     formData.append('track[uploader_id]', this.props.currentUser.id);
     if (this.state.albumArt) formData.append('track[album_art]', this.state.albumArt);
+    if (this.state.audioFile) formData.append('track[audio_file]', this.state.audioFile);
     
     // const track = Object.assign({}, this.state);
     if (this.props.formType === "upload") {

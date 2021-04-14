@@ -7,13 +7,11 @@ class TrackPage extends React.Component {
   constructor(props) {
     super(props);
 
-    const audio = new Audio(this.props.track.audioFile);
-    
     this.state = {
       alreadyPlayed: false,
       playing: false,
       editing: false,
-      audio: audio
+      audio: null
     };
     
     this.handlePlay = this.handlePlay.bind(this);
@@ -22,15 +20,16 @@ class TrackPage extends React.Component {
   }
 
   handlePlay() {
+    if (!this.state.alreadyPlayed) {
+      this.props.updateTrackNoForm({
+        id: this.props.track.id,
+        plays: this.props.track.plays + 1
+      });
+      this.setState({ alreadyPlayed: true });
+    }
+    
     if (!this.state.playing) {
       this.state.audio.play();
-      if (!this.state.alreadyPlayed) {
-        this.props.updateTrackNoForm({
-          id: this.props.track.id,
-          plays: this.props.track.plays + 1
-        });
-        this.setState({ alreadyPlayed: true });
-      }
     } else {
       this.state.audio.pause();
     }
@@ -46,7 +45,11 @@ class TrackPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchTrack(this.props.match.params.trackId);
+    this.props.fetchTrack(this.props.match.params.trackId)
+    .then(()=>{
+      let audio = new Audio(this.props.track.audioFile);
+      this.setState({ audio: audio });
+    });
     window.scrollTo(0, 0);
   }
 

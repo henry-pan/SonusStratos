@@ -5,9 +5,13 @@ class TrackItemList extends React.Component {
   constructor(props){
     super(props);
 
+    let audio;
+    if (this.props.track) audio = new Audio(this.props.track.audioFile);
+
     this.state = {
       alreadyPlayed: false,
-      playing: false
+      playing: false,
+      audio: audio
     };
     
     this.handlePlay = this.handlePlay.bind(this);
@@ -20,6 +24,12 @@ class TrackItemList extends React.Component {
         plays: this.props.track.plays + 1
       });
       this.setState({ alreadyPlayed: true });
+    }
+    
+    if (!this.state.playing) {
+      this.state.audio.play();
+    } else {
+      this.state.audio.pause();
     }
     this.setState({ playing: !this.state.playing });
   }

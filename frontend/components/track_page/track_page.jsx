@@ -80,6 +80,9 @@ class TrackPage extends React.Component {
               <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
               <h1>{this.props.track.title}</h1>
             </div>
+            <div className="track-player-postdate">
+              {this.props.track.posted}
+            </div>
           </div>
         </div>
         <img className="track-player-art" src={this.props.track.albumArt}/>

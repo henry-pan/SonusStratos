@@ -13,6 +13,11 @@ class Upload extends React.Component {
   }
 
   render() {
+
+    const notLoggedInUpload = (
+      <h1>You need to be signed in to upload.</h1>
+    );
+
     return (
       <>
       <NavBarContainer />
@@ -22,7 +27,7 @@ class Upload extends React.Component {
           <span className="upload-nav-item">Upload</span>
         </nav>
         <div className="upload-container">
-          <CreateTrackFormContainer />
+          {this.props.currentUser ? <CreateTrackFormContainer /> : notLoggedInUpload}
         </div>
         <footer className="upload-footer">
           <p>By uploading, you agree to not upload inappropriate tracks or illegal content... or else.</p>

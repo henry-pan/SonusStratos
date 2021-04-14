@@ -100,6 +100,10 @@ class TrackForm extends React.Component {
         <div className="upload-form-body">
           {previewArt}
           <form id="submit-upload-form" className="upload-form-form" onSubmit={this.handleSubmit}>
+            <input id="art-upload" type="file" onChange={this.handleFile} />
+            <label htmlFor="art-upload" className="upload-art-button">
+              Upload Image
+            </label>
             <span className="upload-form-label-req">Title</span>
             <input className="upload-form-input" onChange={(e) => this.handleInput("title", e)} type="text" value={this.state.title} placeholder="Name your track"/>
             <span>Description</span>

@@ -46,8 +46,8 @@ export const createTrack = track => dispatch =>
   .then(track => dispatch(receiveTrack(track)))
   .fail(errors => dispatch(receiveTrackErrors(errors.responseJSON)));
 
-export const updateTrack = track => dispatch =>
-  TrackAPIUtil.updateTrack(track)
+export const updateTrack = (track, formData) => dispatch =>
+  TrackAPIUtil.updateTrack(track, formData)
   .then(track => dispatch(receiveTrack(track)))
   .fail(errors => dispatch(receiveTrackErrors(errors.responseJSON)));
 

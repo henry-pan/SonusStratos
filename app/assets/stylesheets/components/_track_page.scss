@@ -83,6 +83,8 @@
   height: 340px;
   border: 1px solid rgba(0,0,0,.1);
   box-sizing: border-box;
+  object-position: 50% 50%;
+  object-fit: cover;
 }
 
 .track-interface {

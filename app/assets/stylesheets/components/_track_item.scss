@@ -91,9 +91,11 @@
 
 .list-album-art {
   img {
-    width: 160x;
+    width: 160px;
     height: 160px;
     border: 1px solid rgba(0,0,0,.1);
     box-sizing: border-box;
+    object-position: 50% 50%;
+    object-fit: cover;
   }
 }

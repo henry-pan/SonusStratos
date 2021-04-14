@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   fetchAllTracks: () => dispatch(fetchAllTracks()),
   fetchTrack: track => dispatch(fetchTrack(track)),
-  updateTrack: track => dispatch(updateTrack(track)),
+  updateTrack: (track, formData) => dispatch(updateTrack(track, formData)),
   updateTrackNoForm: track => dispatch(updateTrackNoForm(track)),
   deleteTrack: trackId => dispatch(deleteTrack(trackId)),
   openModal: modal => dispatch(openModal(modal))

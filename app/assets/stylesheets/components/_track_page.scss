@@ -53,6 +53,7 @@
     padding: 2px 7px 3px;
     margin-bottom: 5px;
     width: min-content;
+    white-space: nowrap;
     a {
       color: $lighter-text;
       &:hover {

@@ -19,7 +19,7 @@ class PlayBar extends React.Component {
 
       <div className="playbar">
         <div className="playbar-container">
-          <audio id="audio" src={this.props.currentTrack.audioFile}>
+          <audio id="audio" controls src={this.props.currentTrack.audioFile}>
             Your browser does not support audio.
           </audio>
           <div className="playbar-controls">
@@ -29,6 +29,11 @@ class PlayBar extends React.Component {
           <div className="playbar-volume">
           </div>
           <div className="playbar-track-item">
+            <img src={this.props.currentTrack.albumArt} />
+            <div className="playbar-track-item-container">
+              <span><Link to={`/users/${this.props.currentTrack.uploader_id}`}>{this.props.currentTrack.uploader}</Link></span>
+              <h1><Link to={`/tracks/${this.props.currentTrack.id}`}>{this.props.currentTrack.title}</Link></h1>
+            </div>
           </div>
         </div>
       </div>

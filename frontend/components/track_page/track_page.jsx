@@ -28,12 +28,21 @@ class TrackPage extends React.Component {
       this.setState({ alreadyPlayed: true });
     }
     
-    if (!this.state.playing) {
-      this.state.audio.play();
-    } else {
-      this.state.audio.pause();
+    let currentTrackId = null;
+    if (this.props.currentTrack) currentTrackId = this.props.currentTrack.id;
+
+    if (currentTrackId !== this.props.track.id){
+      this.props.receivePlayTrack(this.props.track.id);
     }
+
     this.setState({ playing: !this.state.playing });
+    if (!this.state.playing) {
+      this.props.playTrack();
+      if (currentTrackId) document.getElementById("audio").play();
+    } else {
+      this.props.pauseTrack();
+      if (currentTrackId) document.getElementById("audio").pause();
+    }
   }
 
   handleEdit() {

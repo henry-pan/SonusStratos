@@ -1,6 +1,5 @@
 import React from "react";
 import NavBarContainer from "../navbar/navbar_container";
-import PlayBarContainer from "../playbar/playbar_container";
 import TrackItemTile from "../track_item/track_item_tile";
 import TrackItemList from "../track_item/track_item_list";
 import Modal from "../modal/modal";
@@ -31,7 +30,6 @@ class Discover extends React.Component {
     return (
       <>
       <NavBarContainer />
-      <PlayBarContainer />
       <Modal />
       <div className="content">
         <div className="content-main">

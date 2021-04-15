@@ -19,7 +19,7 @@ class PlayBar extends React.Component {
 
       <div className="playbar">
         <div className="playbar-container">
-          <audio id="audio" controls src={this.props.currentTrack.audioFile}>
+          <audio id="audio" controls autoPlay src={this.props.currentTrack.audioFile}>
             Your browser does not support audio.
           </audio>
           <div className="playbar-controls">

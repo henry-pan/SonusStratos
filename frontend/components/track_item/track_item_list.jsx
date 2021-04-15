@@ -36,8 +36,10 @@ class TrackItemList extends React.Component {
     this.setState({ playing: !this.state.playing });
     if (!this.state.playing) {
       this.props.playTrack();
+      if (currentTrackId) document.getElementById("audio").play();
     } else {
       this.props.pauseTrack();
+      if (currentTrackId) document.getElementById("audio").pause();
     }
   }
 

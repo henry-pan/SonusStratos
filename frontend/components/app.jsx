@@ -13,10 +13,12 @@ import DiscoverContainer from "./discover/discover_container";
 import UploadContainer from "./upload/upload_container";
 import TrackPageContainer from "./track_page/track_page_container";
 import UserPageContainer from "./user_page/user_page_container";
+import PlayBarContainer from "./playbar/playbar_container";
 import { AuthRoute } from "../util/route_util";
 
 const App = () => (
   <>
+    <PlayBarContainer />
     <Switch>
       <Route exact path="/discover" component={DiscoverContainer} />
       <Route exact path="/upload" component={UploadContainer} />

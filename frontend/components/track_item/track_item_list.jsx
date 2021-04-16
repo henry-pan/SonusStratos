@@ -44,6 +44,14 @@ class TrackItemList extends React.Component {
   }
 
   render() {
+
+    // if (!this.props.track)
+
+    let thisTrackPlaying = false;
+    if (this.props.currentTrack && (this.props.currentTrack.id === this.props.track.id)) {
+      thisTrackPlaying = this.state.playing && this.props.isPlaying;
+    }
+
     return (
       <div className="list-container">
         <Link className="list-album-art" to={`/tracks/${this.props.track.id}`}><img src={this.props.track.albumArt}/></Link>
@@ -52,7 +60,7 @@ class TrackItemList extends React.Component {
           <div className="list-detail-title-date">
             <div className="list-title-container">
             <button className="list-play-button" onClick={this.handlePlay}>
-              {this.state.playing ? "❚❚" : "▶"}
+              {thisTrackPlaying ? "❚❚" : "▶"}
             </button>
             <div className="list-title">
               <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>

@@ -20,6 +20,7 @@ class Discover extends React.Component {
         <TrackItemList track={track}
         updateTrackNoForm={this.props.updateTrackNoForm}
         currentTrack={this.props.currentTrack}
+        isPlaying={this.props.isPlaying}
         receivePlayTrack={this.props.receivePlayTrack}
         playTrack={this.props.playTrack}
         pauseTrack={this.props.pauseTrack}

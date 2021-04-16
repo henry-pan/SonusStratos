@@ -63,6 +63,7 @@
 .list-play-button {
   width: 36px;
   height: 36px;
+  min-width: 36px;
   background-color: $accent;
   border-radius: 50%;
   margin: 1px 0;
@@ -77,6 +78,7 @@
   color: $lighter-text;
   font-size: 12px;
   line-height: 16px;
+  white-space: nowrap;
 }
 
 .list-stats {

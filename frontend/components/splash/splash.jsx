@@ -34,29 +34,29 @@ export default ({ currentUser, logout, openModal }) => {
             <h3>Gate of Providence</h3>
           </div>
           <div className="splash-track">
-            <img src={window.fireemblem} />
-            <h2>God Shattering Star</h2>
-            <h3>Fire Emblem: Three Houses</h3>
-          </div>
-          <div className="splash-track">
-            <img src={window.nierAutomata} />
-            <h2>Vague Hope (Cold Rain)</h2>
-            <h3>NieR: Automata</h3>
-          </div>
-          <div className="splash-track">
-            <img src={window.ys} />
-            <h2>Genesis Beyond the Beginning</h2>
-            <h3>Ys Origin</h3>
-          </div>
-          <div className="splash-track">
-            <img src={window.atelier1} />
+            <img src={window.meruru} />
             <h2>Astarte</h2>
             <h3>Atelier Meruru</h3>
           </div>
           <div className="splash-track">
-            <img src={window.pokemon} />
-            <h2>Vast Poni Canyon</h2>
-            <h3>Pokemon Sun and Moon</h3>
+            <img src={window.fsn} />
+            <h2>New Dawn</h2>
+            <h3>Fate/stay night: Realta Nua</h3>
+          </div>
+          <div className="splash-track">
+            <img src={window.fates} />
+            <h2>Thorn in You (Roar)</h2>
+            <h3>Fire Emblem Fates</h3>
+          </div>
+          <div className="splash-track">
+            <img src={window.aria} />
+            <h2>Ruined Castle Corridor</h2>
+            <h3>Castlevania: Aria of Sorrow</h3>
+          </div>
+          <div className="splash-track">
+            <img src={window.ryza} />
+            <h2>Grain Rain, Wheat Wind</h2>
+            <h3>Atelier Ryza</h3>
           </div>
           <div className="splash-track">
             <img src={window.dreamshot} />
@@ -64,29 +64,29 @@ export default ({ currentUser, logout, openModal }) => {
             <h3>Dreamshot Dissonance</h3>
           </div>
           <div className="splash-track">
-            <img src={window.kh} />
-            <h2>The Other Promise</h2>
-            <h3>Kingdom Hearts II Final Mix</h3>
+            <img src={window.automata} />
+            <h2>Vague Hope (Cold Rain)</h2>
+            <h3>NieR: Automata</h3>
           </div>
           <div className="splash-track">
-            <img src={window.nier} />
-            <h2>Shadowlord</h2>
-            <h3>NieR</h3>
+            <img src={window.ecclesia} />
+            <h2>An Empty Tome</h2>
+            <h3>Castlevania: Order of Ecclesia</h3>
           </div>
           <div className="splash-track">
-            <img src={window.smash} />
-            <h2>Stickerbrush Symphony</h2>
-            <h3>Super Smash Bros. Ultimate</h3>
+            <img src={window.kh3} />
+            <h2>Scala ad Caelum</h2>
+            <h3>Kingdom Hearts III</h3>
           </div>
           <div className="splash-track">
-            <img src={window.octopath} />
-            <h2>They Who Govern Reason</h2>
-            <h3>Octopath Traveller</h3>
+            <img src={window.ygo} />
+            <h2>5D's Winning Theme</h2>
+            <h3>Yu-Gi-Oh! Duel Links</h3>
           </div>
           <div className="splash-track">
-            <img src={window.srw} />
-            <h2>Ash to Ash</h2>
-            <h3>Super Robot Wars OG</h3>
+            <img src={window.threehouses} />
+            <h2>God Shattering Star</h2>
+            <h3>Fire Emblem: Three Houses</h3>
           </div>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default ({ currentUser, logout, openModal }) => {
         <figure />
         <div className="splash-devices-info">
           <h2>Never stop listening</h2>
-          <p>SonusStratos is available exclusively on the Web! And technically also iOS, Android, and probably even the Nintendo 3DS.</p>
+          <p>SonusStratos is available exclusively on the Web! And technically also iOS, Android, or any device that doesn't have an ancient browser.</p>
         </div>
       </section>
       <section className="splash-call">

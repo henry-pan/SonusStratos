@@ -14,6 +14,10 @@ class User < ApplicationRecord
     foreign_key: :uploader_id,
     class_name: :Track
 
+  has_many :comments,
+    foreign_key: :commenter_id,
+    class_name: :Comment
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     if user && user.is_password?(password)

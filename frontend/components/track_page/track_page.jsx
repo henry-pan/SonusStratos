@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavBarContainer from "../navbar/navbar_container";
 import Modal from "../modal/modal";
+import CommentFormContainer from "../comment_form/comment_form_container";
 
 class TrackPage extends React.Component {
   constructor(props) {
@@ -106,11 +107,11 @@ class TrackPage extends React.Component {
           </div>
         </div>
         <img className="track-player-art" src={this.props.track.albumArt}/>
-
       </div>
       <div className="content">
         <div className="content-main">
           <div className="track-interface">
+            <CommentFormContainer trackId={this.props.track.id}/>
             <div className="track-button-container">
               {actionButtons}
             </div>

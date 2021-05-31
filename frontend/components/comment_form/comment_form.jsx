@@ -4,9 +4,9 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentBody: "",
-      commenter: this.props.currentUser,
-      track: this.props.trackId
+      comment_body: "",
+      commenter_id: this.props.currentUser.id,
+      track_id: this.props.trackId
     }
 
     this.handleInput = this.handleInput.bind(this);
@@ -14,13 +14,13 @@ class CommentForm extends React.Component {
   }
 
   handleInput(e) {
-    this.setState({ commentBody: e.target.value });
+    this.setState({ comment_body: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.createComment(this.state);
-    this.setState({ commentBody: "" });
+    this.setState({ comment_body: "" });
   }
 
   render() {
@@ -28,7 +28,7 @@ class CommentForm extends React.Component {
       <div>
         <img src={this.props.currentUser.profilePic} />
         <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Write a comment" value={this.state.commentBody} onChange={this.handleInput} />
+          <input type="text" placeholder="Write a comment" value={this.state.comment_body} onChange={this.handleInput} />
         </form>
       </div>
     );

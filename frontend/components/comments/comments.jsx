@@ -1,4 +1,5 @@
 import React from "react";
+import CommentsItem from "./comments_item";
 
 class Comments extends React.Component {
   constructor(props){

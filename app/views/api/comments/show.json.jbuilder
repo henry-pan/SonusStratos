@@ -3,4 +3,4 @@ json.comment do
 end
 
 json.commenter @comment.commenter
-json.posted time_ago_in_words(track.created_at)
+json.posted time_ago_in_words(@comment.created_at)

@@ -36,7 +36,7 @@ export default ({ currentUser, logout, openModal }) => {
           <div className="splash-track">
             <img src={window.ds3} />
             <h2>Vordt of the Boreal Valley</h2>
-            <h3>AshenOne</h3>
+            <h3>ashen1</h3>
           </div>
           <div className="splash-track">
             <img src={window.aria} />

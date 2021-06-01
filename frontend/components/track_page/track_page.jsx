@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NavBarContainer from "../navbar/navbar_container";
 import Modal from "../modal/modal";
 import CommentFormContainer from "../comment_form/comment_form_container";
+import CommentsContainer from "../comments/comments_container";
 
 class TrackPage extends React.Component {
   constructor(props) {
@@ -128,7 +129,7 @@ class TrackPage extends React.Component {
             </div>
             <div className="track-text-container">
               <p className="track-description">{this.props.track.description}</p>
-              {comments}
+              <CommentsContainer />
             </div>
           </div>
         </div>

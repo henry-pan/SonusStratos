@@ -11,12 +11,16 @@ class CommentsItem extends React.Component {
   }
 
   render() {
-    <div>
-      <p>
-        {this.props.comment.comment_body}
-      </p>
-      <button onClick={this.handleDelete}>Delete</button>
-    </div>
+    return(
+      <div>
+        <img src={this.props.commenter.profilePic} />
+        <p>
+          {this.props.comment.comment_body}
+          {this.props.comment.posted}
+        </p>
+        <button onClick={this.handleDelete}>Delete</button>
+      </div>
+    )
   }
 }
 

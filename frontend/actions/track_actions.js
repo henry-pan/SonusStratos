@@ -57,5 +57,5 @@ export const updateTrackNoForm = track => dispatch =>
 
 export const deleteTrack = trackId => dispatch =>
   TrackAPIUtil.deleteTrack(trackId)
-  .then(track => dispatch(removeTrack(track)))
+  .then(() => dispatch(removeTrack(trackId)))
   .fail(errors => dispatch(receiveTrackErrors(errors.responseJSON)));

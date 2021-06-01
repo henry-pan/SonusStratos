@@ -12,13 +12,13 @@ class CommentsItem extends React.Component {
   }
 
   render() {
+    if (!this.props.commenter) return null;
     return(
       <div>
-        {/* <img src={this.props.commenter.profilePic} /> */}
-        <p>
-          {this.props.comment.comment_body}
-          {this.props.comment.posted}
-        </p>
+        {/* <img src={this.props.commenter.profilePic} />
+        <p>{this.props.commenter.username}</p> */}
+        <p>{this.props.comment.comment_body}</p>
+        <p>{this.props.comment.posted}</p>
         <button onClick={this.handleDelete}>Delete</button>
       </div>
     )

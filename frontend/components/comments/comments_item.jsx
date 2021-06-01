@@ -6,7 +6,8 @@ class CommentsItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleDelete() {
+  handleDelete(e) {
+    e.preventDefault();
     this.props.deleteComment(this.props.comment.id);
   }
 

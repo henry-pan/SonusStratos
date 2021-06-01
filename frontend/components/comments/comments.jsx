@@ -18,10 +18,11 @@ class Comments extends React.Component {
       </li>
     ));
 
+    let plural = (commentValues.length === 1 ? "comment" : "comments");
 
     return (
       <div>
-        <p>{commentValues.length} comments</p>
+        <p>{commentValues.length} {plural}</p>
         <ul>
           {commentsList}
         </ul>

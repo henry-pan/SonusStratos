@@ -8,7 +8,7 @@ class Comments extends React.Component {
 
   render() {
     let commentValues = Object.values(this.props.comments);
-    let commentsList = Object.values(this.props.comments).map((comment, i) => (
+    let commentsList = commentValues.map((comment, i) => (
       <li key={i}>
         <CommentsItem
         currentUserId={this.props.currentUser.id}

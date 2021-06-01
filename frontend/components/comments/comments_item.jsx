@@ -13,7 +13,7 @@ class CommentsItem extends React.Component {
   render() {
     return(
       <div>
-        <img src={this.props.commenter.profilePic} />
+        {/* <img src={this.props.commenter.profilePic} /> */}
         <p>
           {this.props.comment.comment_body}
           {this.props.comment.posted}

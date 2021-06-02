@@ -88,6 +88,8 @@ class TrackPage extends React.Component {
       </>
     );
 
+    const commentForm = (this.props.currentUser ? <CommentFormContainer trackId={this.props.track.id}/> : null);
+
     return (
       <>
       <NavBarContainer />
@@ -112,7 +114,7 @@ class TrackPage extends React.Component {
       <div className="content">
         <div className="content-main">
           <div className="track-interface">
-            <CommentFormContainer trackId={this.props.track.id}/>
+            {commentForm}
             <div className="track-button-container">
               {actionButtons}
             </div>

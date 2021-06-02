@@ -4,11 +4,5 @@ json.comment do
 end
 
 json.commenter do
-  json.extract! @comment.commenter, :id, :username
-  
-  if @comment.commenter.profile_pic.attached?
-    json.profilePic url_for(@comment.commenter.profile_pic)
-  else
-    json.profilePic "https://www.henry-pan.com/seed/sonusstratos/stratos.jpg"
-  end
+  json.partial! "/api/users/user", user: @comment.commenter
 end

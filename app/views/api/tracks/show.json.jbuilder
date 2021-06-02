@@ -10,16 +10,15 @@ json.comments do
 end
 
 json.users do
+  # Get uploader of the track
+  json.set! @track.uploader.id do
+    json.partial! "/api/users/user", user: @track.uploader
+  end
+
+  # Get everyone who commented on this track
   @track.comments.each do |comment|
     json.set! comment.commenter_id do
-      user = User.find_by(id: comment.commenter_id)
-      json.extract! user, :id, :username
-      
-      if user.profile_pic.attached?
-        json.profilePic url_for(user.profile_pic)
-      else
-        json.profilePic "https://www.henry-pan.com/seed/sonusstratos/stratos.jpg"
-      end
+      json.partial! "/api/users/user", user: User.find_by(id: comment.commenter_id)
     end
   end
 end

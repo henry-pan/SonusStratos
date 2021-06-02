@@ -5,3 +5,11 @@ json.tracks do
     end
   end
 end
+
+json.users do
+  @tracks.each do |track|
+    json.set! track.uploader_id do
+      json.partial! "/api/users/user", user: track.uploader
+    end
+  end
+end

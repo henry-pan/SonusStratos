@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
-import { RECEIVE_TRACK } from "../actions/track_actions";
+import { RECEIVE_TRACKS, RECEIVE_TRACK } from "../actions/track_actions";
 import { RECEIVE_COMMENT } from "../actions/comment_actions";
 
 const usersReducer = (state = {}, action) => {
@@ -7,6 +7,8 @@ const usersReducer = (state = {}, action) => {
   switch(action.type){
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
+    case RECEIVE_TRACKS:
+      return Object.assign({}, state, action.tracks.users);
     case RECEIVE_TRACK:
       return Object.assign({}, state, action.track.users);
     case RECEIVE_COMMENT:

@@ -6,7 +6,7 @@ const tracksReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_TRACKS:
-      return action.tracks.tracks;
+      return Object.assign(nextState, action.tracks.tracks);
     case RECEIVE_TRACK:
       nextState[action.track.id] = action.track;
       return nextState;

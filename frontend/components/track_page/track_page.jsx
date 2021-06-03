@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faPen, faTrash  } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import NavBarContainer from "../navbar/navbar_container";
 import Modal from "../modal/modal";
 import Footer from "../footer/footer";

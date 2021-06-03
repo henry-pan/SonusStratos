@@ -15,6 +15,7 @@ class Comments extends React.Component {
         <CommentsItem
         comment={comment}
         commenter={this.props.users[comment.commenter_id]}
+        currentUser={this.props.currentUser}
         deleteComment={this.props.deleteComment} />
       </li>
     ));

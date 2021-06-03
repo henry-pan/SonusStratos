@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import CommentsItem from "./comments_item";
 
 class Comments extends React.Component {
@@ -31,9 +33,9 @@ class Comments extends React.Component {
     let plural = (commentValues.length === 1 ? "comment" : "comments");
 
     return (
-      <div>
-        <p>{commentValues.length} {plural}</p>
-        <ul>
+      <div className="track-comments-container">
+        <h3 className="track-comments-title"><FontAwesomeIcon icon={faCommentAlt} /> {commentValues.length} {plural}</h3>
+        <ul className="track-comments-list">
           {commentsList}
         </ul>
       </div>

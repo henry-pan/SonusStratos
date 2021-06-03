@@ -125,7 +125,7 @@ class TrackPage extends React.Component {
             </div>
             <div className="track-text-container">
               <p className="track-description">{this.props.track.description}</p>
-              <CommentsContainer />
+              <CommentsContainer uploaderId={this.props.track.uploader_id} />
             </div>
           </div>
         </div>

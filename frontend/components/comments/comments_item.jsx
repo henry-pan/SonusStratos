@@ -18,6 +18,10 @@ class CommentsItem extends React.Component {
     return this.props.currentUser.id === this.props.commenter.id;
   }
 
+  isUploader() {
+    return this.props.currentUser.id === this.props.uploaderId;
+  }
+
   render() {
     if (!this.props.commenter) return null;
 
@@ -26,6 +30,11 @@ class CommentsItem extends React.Component {
     if (this.isAuthor()) {
       commentAuthor = "You";
       commentClass += "-creator";
+    }
+
+    let commentButtons;
+    if (this.isAuthor() || this.isUploader()) {
+      commentButtons = <button className="track-action-button" onClick={this.handleDelete}><FontAwesomeIcon icon={faTrash} /></button>;
     }
 
     return (
@@ -38,7 +47,7 @@ class CommentsItem extends React.Component {
         <div className="track-comments-item-meta">
           <span className="track-comments-posted">{this.props.comment.posted}</span>
           <div className="track-comments-buttons-container">
-            <button className="track-action-button" onClick={this.handleDelete}><FontAwesomeIcon icon={faTrash} /></button>
+            {commentButtons}
           </div>
         </div>
       </div>

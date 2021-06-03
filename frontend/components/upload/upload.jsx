@@ -2,6 +2,7 @@ import React from "react";
 import NavBarContainer from "../navbar/navbar_container";
 import CreateTrackFormContainer from "../track_form/create_track_form_container"
 import Modal from "../modal/modal";
+import Footer from "../footer/footer";
 
 class Upload extends React.Component {
   constructor(props) {
@@ -70,8 +71,7 @@ class Upload extends React.Component {
         </div>
         <footer className="upload-footer">
           <p>By uploading, you agree to not upload inappropriate tracks or illegal content... or else.</p>
-          <span><a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a></span>
-          <p>Language: English (US)</p>
+          <Footer />
         </footer>
       </div>
       </>

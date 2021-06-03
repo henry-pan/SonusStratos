@@ -12,6 +12,7 @@
 
   &+.content {
     margin-top: 0;
+    padding-top: 20px;
   }
 }
 
@@ -87,12 +88,16 @@
   object-fit: cover;
 }
 
+.track-main {
+  padding-top: 1px;
+}
+
 .track-interface {
   display: flex;
   justify-content: space-between;
-  width: 820px;
+  width: 819px;
   padding-bottom: 8px;
-  border-bottom: 1px solid $lighter-border;
+  border-bottom: 1px solid $lightest-border;
   margin-bottom: 20px;
 }
 
@@ -111,6 +116,10 @@
   font-size: 14px;
   line-height: 20px;
   text-align: center;
+
+  &:first-child {
+    margin-left: 1px;
+  }
 
   &:hover {
     border: 1px solid $light-border;

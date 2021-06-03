@@ -17,6 +17,17 @@ class Comments extends React.Component {
       </li>
     ));
 
+
+    const emptyComments = (
+      <div className="track-comments-empty">
+        <div className="track-comments-empty-image"></div>
+        <h3>Seems a little quiet over here</h3>
+        <h4>Be the first to comment on this track</h4>
+      </div>
+    );
+
+    if (commentValues.length === 0) return emptyComments;
+
     let plural = (commentValues.length === 1 ? "comment" : "comments");
 
     return (

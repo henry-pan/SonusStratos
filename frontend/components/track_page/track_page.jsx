@@ -65,18 +65,10 @@ class TrackPage extends React.Component {
   }
 
   render() {
-
     if (!this.props.track) return null;
 
-    const comments = (
-      <div className="track-comments-empty">
-        <div className="track-comments-empty-image"></div>
-        <h3>Seems a little quiet over here</h3>
-        <h4>Be the first to comment on this track</h4>
-      </div>
-    );
-
     const isTrackOwner = this.props.currentUser && (this.props.currentUser.id === this.props.track.uploader_id);
+    const commentForm = (this.props.currentUser ? <CommentFormContainer trackId={this.props.track.id}/> : null);
 
     const actionButtons = isTrackOwner ? (
       <>
@@ -88,7 +80,6 @@ class TrackPage extends React.Component {
       </>
     );
 
-    const commentForm = (this.props.currentUser ? <CommentFormContainer trackId={this.props.track.id}/> : null);
 
     return (
       <>
@@ -112,7 +103,7 @@ class TrackPage extends React.Component {
         <img className="track-player-art" src={this.props.track.albumArt}/>
       </div>
       <div className="content">
-        <div className="content-main">
+        <div className="content-main track-main">
           {commentForm}
           <div className="track-interface">
             <div className="track-button-container">

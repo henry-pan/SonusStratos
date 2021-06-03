@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faPen, faTrash  } from "@fortawesome/free-solid-svg-icons";
 import NavBarContainer from "../navbar/navbar_container";
 import Modal from "../modal/modal";
+import Footer from "../footer/footer";
 import CommentFormContainer from "../comment_form/comment_form_container";
 import CommentsContainer from "../comments/comments_container";
 
@@ -130,8 +131,7 @@ class TrackPage extends React.Component {
         </div>
         <div className="content-sidebar">
           <footer className="content-footer">
-            <span><a href="https://www.henry-pan.com">Portfolio</a> - <a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a> - <a href="https://angel.co/u/henrypan">Angellist</a></span>
-            <p>Language: English (US)</p>
+            <Footer />
           </footer>
         </div>
       </div>

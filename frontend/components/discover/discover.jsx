@@ -3,6 +3,7 @@ import NavBarContainer from "../navbar/navbar_container";
 import TrackItemTile from "../track_item/track_item_tile";
 import TrackItemList from "../track_item/track_item_list";
 import Modal from "../modal/modal";
+import Footer from "../footer/footer";
 
 class Discover extends React.Component {
   constructor(props) {
@@ -39,8 +40,7 @@ class Discover extends React.Component {
         </div>
         <div className="content-sidebar">
           <footer className={`content-footer content-footer-discover`}>
-          <span><a href="https://www.henry-pan.com">Portfolio</a> - <a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a> - <a href="https://angel.co/u/henrypan">Angellist</a></span>
-            <p>Language: English (US)</p>
+            <Footer />
           </footer>
         </div>
       </div>

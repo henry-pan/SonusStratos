@@ -25,11 +25,13 @@ class CommentForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <img src={this.props.currentUser.profilePic} />
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Write a comment" value={this.state.comment_body} onChange={this.handleInput} />
-        </form>
+      <div className="track-comment-form-container">
+        <img className="track-comment-form-avatar" src={this.props.currentUser.profilePic} />
+        <div className="track-comment-form-input-container">
+          <form onSubmit={this.handleSubmit}>
+            <input className="track-comment-form-input" type="text" placeholder="Write a comment" value={this.state.comment_body} onChange={this.handleInput} />
+          </form>
+        </div>
       </div>
     );
   }

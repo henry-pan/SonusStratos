@@ -113,8 +113,8 @@ class TrackPage extends React.Component {
       </div>
       <div className="content">
         <div className="content-main">
+          {commentForm}
           <div className="track-interface">
-            {commentForm}
             <div className="track-button-container">
               {actionButtons}
             </div>

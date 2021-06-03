@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause  } from "@fortawesome/free-solid-svg-icons";
 
 class TrackItemList extends React.Component {
   constructor(props){
@@ -60,7 +62,7 @@ class TrackItemList extends React.Component {
           <div className="list-detail-title-date">
             <div className="list-title-container">
             <button className="list-play-button" onClick={this.handlePlay}>
-              {thisTrackPlaying ? "❚❚" : "▶"}
+              {thisTrackPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
             </button>
             <div className="list-title">
               <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
@@ -72,7 +74,7 @@ class TrackItemList extends React.Component {
             </div>
           </div>
           <div className="list-stats">
-            <span>▶ {this.props.track.plays}</span>
+            <span><FontAwesomeIcon icon={faPlay} size="xs" /> {this.props.track.plays}</span>
           </div>
         </div>
       </div>

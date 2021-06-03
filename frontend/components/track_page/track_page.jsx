@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faPen, faTrash  } from "@fortawesome/free-solid-svg-icons";
 import NavBarContainer from "../navbar/navbar_container";
 import Modal from "../modal/modal";
 import CommentFormContainer from "../comment_form/comment_form_container";
@@ -72,8 +74,8 @@ class TrackPage extends React.Component {
 
     const actionButtons = isTrackOwner ? (
       <>
-        <button className="track-action-button" onClick={this.handleEdit}>Edit</button>
-        <button className="track-action-button" onClick={this.handleDelete}>Delete</button>
+        <button className="track-action-button" onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button>
+        <button className="track-action-button" onClick={this.handleDelete}><FontAwesomeIcon icon={faTrash} /> Delete</button>
       </>
     ) : (
       <>
@@ -89,7 +91,7 @@ class TrackPage extends React.Component {
         <div className="track-player-details-container">
           <div className="track-player-title-container">
             <button className="track-player-play-button" onClick={this.handlePlay}>
-              {this.state.playing ? "❚❚" : "▶"}
+              {this.state.playing ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
             </button>
             <div className="track-player-title">
               <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
@@ -110,7 +112,7 @@ class TrackPage extends React.Component {
               {actionButtons}
             </div>
             <div className="track-stat-container">
-              <span>▶ {this.props.track.plays}</span>
+              <span><FontAwesomeIcon icon={faPlay} size="xs" /> {this.props.track.plays}</span>
             </div>
           </div>
           <div className="track-about">
@@ -128,7 +130,7 @@ class TrackPage extends React.Component {
         </div>
         <div className="content-sidebar">
           <footer className="content-footer">
-            <span><a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a></span>
+            <span><a href="https://www.henry-pan.com">Portfolio</a> - <a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a> - <a href="https://angel.co/u/henrypan">Angellist</a></span>
             <p>Language: English (US)</p>
           </footer>
         </div>

@@ -153,6 +153,10 @@
 .upload-form-art {
   width: 260px;
   height: 260px;
+  border: 1px solid rgba(0,0,0,.1);
+  box-sizing: border-box;
+  object-position: 50% 50%;
+  object-fit: cover;
 }
 
 .upload-form-art-empty {
@@ -179,7 +183,7 @@ input[type="file"] {
   width: 129px;
   line-height: 20px;
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
   background-clip: padding-box;
   background-color: hsla(0,0%,100%,.8);

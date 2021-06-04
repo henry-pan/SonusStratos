@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
 class TrackForm extends React.Component {
   constructor(props) {
@@ -68,7 +70,6 @@ class TrackForm extends React.Component {
     if (this.state.albumArt) formData.append('track[album_art]', this.state.albumArt);
     if (this.state.audioFile) formData.append('track[audio_file]', this.state.audioFile);
     
-    // const track = Object.assign({}, this.state);
     if (this.props.formType === "upload") {
       this.props.processForm(formData).then(() => this.props.history.push("/discover"));
     } else {
@@ -87,7 +88,7 @@ class TrackForm extends React.Component {
   }
 
   render() {
-    const submitText = this.props.formType === "upload" ? "Upload" : "Save Changes";
+    const submitText = this.props.formType === "upload" ? "Upload" : "Save changes";
     const previewArt = this.state.albumArtPreview ? (
       <img className="upload-form-art" src={this.state.albumArtPreview}/>
     ) : (
@@ -104,7 +105,7 @@ class TrackForm extends React.Component {
           <form id="submit-upload-form" className="upload-form-form" onSubmit={this.handleSubmit}>
             <input id="art-upload" type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile} />
             <label htmlFor="art-upload" className="upload-art-button">
-              Upload Image
+            <FontAwesomeIcon icon={faCamera} /> Upload image
             </label>
             <span className="upload-form-label-req">Title</span>
             <input className="upload-form-input" onChange={(e) => this.handleInput("title", e)} type="text" value={this.state.title} placeholder="Name your track"/>

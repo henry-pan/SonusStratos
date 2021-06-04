@@ -180,4 +180,17 @@
 .track-comments-end {
   margin: 45px 0 0;
   border-top: 1px solid $lightest-border;
+  position: relative;
+  height: 29px;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 29px;
+    position: absolute;
+    left: 0;
+    top: -15px;
+    background: image-url('logo-mini-light.png') 50% no-repeat;
+  }
 }

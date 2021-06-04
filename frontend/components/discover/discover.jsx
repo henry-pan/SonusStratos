@@ -12,6 +12,7 @@ class Discover extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllTracks();
+    window.scrollTo(0, 0);
   }
 
   render() {

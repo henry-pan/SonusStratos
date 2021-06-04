@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import NavBarContainer from "../navbar/navbar_container";
 import Modal from "../modal/modal";
+import Footer from "../footer/footer";
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -43,8 +44,7 @@ class UserPage extends React.Component {
         </div>
         <div className="content-sidebar">
           <footer className="content-footer">
-            <span><a href="https://github.com/henry-pan">GitHub</a> - <a href="https://www.linkedin.com/in/henry-pan/">LinkedIn</a></span>
-            <p>Language: English (US)</p>
+            <Footer />
           </footer>
         </div>
       </div>

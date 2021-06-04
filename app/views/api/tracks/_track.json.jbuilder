@@ -2,6 +2,7 @@ json.extract! track, :id, :title, :description, :plays, :uploader_id
 
 json.uploader track.uploader.username
 json.posted time_ago_in_words(track.created_at)
+json.numComments track.comments.length
 
 if track.album_art.attached?
   json.albumArt url_for(track.album_art)

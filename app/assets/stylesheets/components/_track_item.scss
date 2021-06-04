@@ -84,11 +84,22 @@
 .list-stats {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-top: 5px;
   margin-bottom: 5px;
   color: $light-text;
   font-size: 11px;
   line-height: 12px;
+  
+  span {
+    margin-left: 18px;
+    a {
+      color: $light-text;
+      &:hover{
+        color: $dark-text;
+      }
+    }
+  }
 }
 
 .list-album-art {

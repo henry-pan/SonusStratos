@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause  } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faCommentAlt  } from "@fortawesome/free-solid-svg-icons";
 
 class TrackItemList extends React.Component {
   constructor(props){
@@ -47,11 +47,18 @@ class TrackItemList extends React.Component {
 
   render() {
 
-    // if (!this.props.track)
-
     let thisTrackPlaying = false;
     if (this.props.currentTrack && (this.props.currentTrack.id === this.props.track.id)) {
       thisTrackPlaying = this.state.playing && this.props.isPlaying;
+    }
+
+    let numComments = null;
+    if (this.props.track.numComments > 0) {
+      numComments = <span>
+        <Link to={`/tracks/${this.props.track.id}`}>
+          <FontAwesomeIcon icon={faCommentAlt} /> {this.props.track.numComments}
+        </Link>
+        </span>;
     }
 
     return (
@@ -75,6 +82,7 @@ class TrackItemList extends React.Component {
           </div>
           <div className="list-stats">
             <span><FontAwesomeIcon icon={faPlay} size="xs" /> {this.props.track.plays}</span>
+            {numComments}
           </div>
         </div>
       </div>

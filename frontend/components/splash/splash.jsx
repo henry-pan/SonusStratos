@@ -47,7 +47,7 @@ export default ({ currentUser, logout, openModal }) => {
           <div className="splash-track">
             <img src={window.meruru} />
             <h2>Astarte</h2>
-            <h3>Meruru</h3>
+            <h3>alchemicalryza</h3>
           </div>
           <div className="splash-track">
             <img src={window.fates} />

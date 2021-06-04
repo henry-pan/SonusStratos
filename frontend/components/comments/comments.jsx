@@ -40,6 +40,7 @@ class Comments extends React.Component {
         <ul className="track-comments-list">
           {commentsList}
         </ul>
+        <div className="track-comments-end"></div>
       </div>
     );
   }

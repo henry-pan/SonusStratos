@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { clearErrors } from '../../actions/session_actions';
-import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import EditTrackFormContainer from '../track_form/edit_track_form_container';
+import UserFormContainer from '../user_form/user_form_container';
 
-function Modal({modal, closeModal, trackId}) {
+function Modal({modal, closeModal, trackId, userId}) {
   if (!modal) {
     return null;
   }
@@ -24,6 +25,10 @@ function Modal({modal, closeModal, trackId}) {
     case 'edit':
       component = <EditTrackFormContainer trackId={trackId}/>;
       modalType = "modal-edit-track";
+      break;
+    case 'user':
+      component = <UserFormContainer userId={userId}/>;
+      modalType = "modal-user";
       break;
     default:
       return null;

@@ -12,11 +12,13 @@ class User < ApplicationRecord
 
   has_many :tracks,
     foreign_key: :uploader_id,
-    class_name: :Track
+    class_name: :Track,
+    dependent: :destroy
 
   has_many :comments,
     foreign_key: :commenter_id,
-    class_name: :Comment
+    class_name: :Comment,
+    dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

@@ -7,19 +7,20 @@ class TrackItemList extends React.Component {
   constructor(props){
     super(props);
 
-    let audio;
-    if (this.props.track) audio = new Audio(this.props.track.audioFile);
-
     this.state = {
       alreadyPlayed: false,
       playing: false,
-      audio: audio
+      audio: null
     };
     
     this.handlePlay = this.handlePlay.bind(this);
   }
 
   handlePlay() {
+
+    if (this.state.audio === null && this.props.track) this.setState({audio: new Audio(this.props.track.audioFile)});
+
+
     if (!this.state.alreadyPlayed) {
       this.props.updateTrackNoForm({
         id: this.props.track.id,

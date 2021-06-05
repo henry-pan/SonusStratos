@@ -15,7 +15,8 @@ else
 end
 
 if track.audio_file.attached?
-  json.audioFile url_for(track.audio_file)
+  # json.audioFile url_for(track.audio_file)
+  json.audioFile "https://www.henry-pan.com/seed/sonusstratos/sample.ogg"
 else
   json.audioFile ""
 end

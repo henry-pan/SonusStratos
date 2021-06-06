@@ -1,17 +1,17 @@
 import { connect } from "react-redux";
-import { updateTrack, clearErrors } from '../../actions/track_actions';
+import { updateUser, clearErrors } from '../../actions/user_actions';
 import { closeModal } from '../../actions/modal_actions';
-import TrackForm from "./track_form";
+import UserForm from "./user_form";
 
 const mapStateToProps = (state, ownProps) => ({
-  track: state.entities.tracks[ownProps.trackId],
+  user: state.entities.users[ownProps.userId],
   currentUser: state.entities.users[state.session.id],
-  errors: state.errors.tracks,
-  formType: "edit"
+  errors: state.errors.user,
+  formType: "user"
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  processForm: (track, formData) => dispatch(updateTrack(track, formData)),
+  processForm: (user, formData) => dispatch(updateUser(user, formData)),
   clearErrors: () => dispatch(clearErrors()),
   closeModal: () => {
     dispatch(closeModal());
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrackForm);
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm);

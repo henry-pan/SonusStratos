@@ -91,7 +91,7 @@ class UserForm extends React.Component {
             <FontAwesomeIcon icon={faCamera} /> Upload image
             </label>
             <span className="user-form-label-req">Display name</span>
-            <input className="user-form-input" onChange={(e) => this.handleInput("username", e)} type="text" value={this.state.username} />
+            <input className="user-form-input-large" onChange={(e) => this.handleInput("username", e)} type="text" value={this.state.username} />
             {this.renderErrors()}
             <div className="user-form-details-container">
               <div className="user-form-details-item">

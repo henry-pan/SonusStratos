@@ -233,6 +233,20 @@ input[type="file"] {
   }
 }
 
+.user-form-input-large {
+  margin-bottom: 10px;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 7px 8px;
+  border-radius: 5px;
+  border: 1px solid $light-border;
+  &:focus {
+    outline: 0;
+    border: 1px solid $dark-border;
+  }
+}
+
 .user-form-submit {
   display: flex;
   justify-content: space-between;

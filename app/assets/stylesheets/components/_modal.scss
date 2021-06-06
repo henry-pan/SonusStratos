@@ -46,6 +46,20 @@
   min-height: 390px;
 }
 
+.modal-user {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $inner-body;
+  width: 850px;
+  min-height: 450px;
+}
+
 .modal-social-login {
   width: 90%;
 }

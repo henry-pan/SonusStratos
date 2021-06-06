@@ -62,8 +62,9 @@ class UserForm extends React.Component {
   }
 
   renderErrors(){
+    if (this.props.errors.length === 0) return null;
     return (
-      <ul className="upload-form-errors">
+      <ul className="user-form-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{error}</li>
         ))}
@@ -74,44 +75,52 @@ class UserForm extends React.Component {
   render() {
     const submitText = "Save changes";
     const previewPic = this.state.profilePicPreview ? (
-      <img className="upload-form-art" src={this.state.profilePicPreview}/>
+      <img className="user-form-art" src={this.state.profilePicPreview}/>
     ) : (
-      <img className="upload-form-art-empty" />
+      <img className="user-form-art-empty" />
     );
 
     return (
-      <div className="upload-form-container">
-        <nav className="upload-form-nav">
-          <span className="upload-form-nav-item">Edit your profile</span>
-        </nav>
-        <div className="upload-form-body">
+      <div className="user-form-container">
+        <h2 className="user-form-title">Edit your Profile</h2>
+        <div className="user-form-body">
           {previewPic}
-          <form id="submit-upload-form" className="upload-form-form" onSubmit={this.handleSubmit}>
+          <form id="submit-user-form" className="user-form-form" onSubmit={this.handleSubmit}>
             <input id="art-upload" type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile} />
-            <label htmlFor="art-upload" className="upload-art-button">
+            <label htmlFor="art-upload" className="user-art-button">
             <FontAwesomeIcon icon={faCamera} /> Upload image
             </label>
-            <span className="upload-form-label-req">Display name</span>
-            <input className="upload-form-input" onChange={(e) => this.handleInput("username", e)} type="text" value={this.state.username} />
-            <span>First name</span>
-            <input className="upload-form-input" onChange={(e) => this.handleInput("firstname", e)} type="text" value={this.state.firstname} />
-            <span>Last name</span>
-            <input className="upload-form-input" onChange={(e) => this.handleInput("lastname", e)} type="text" value={this.state.lastname} />
-            <span>City</span>
-            <input className="upload-form-input" onChange={(e) => this.handleInput("city", e)} type="text" value={this.state.city} />
-            <span>Country</span>
-            <input className="upload-form-input" onChange={(e) => this.handleInput("country", e)} type="text" value={this.state.country} />
-            <span>Bio</span>
-            <textarea className="upload-form-input" onChange={(e) => this.handleInput("bio", e)} value={this.state.bio} />
-            <input type="file" onChange={this.handleFile} />
+            <span className="user-form-label-req">Display name</span>
+            <input className="user-form-input" onChange={(e) => this.handleInput("username", e)} type="text" value={this.state.username} />
             {this.renderErrors()}
+            <div className="user-form-details-container">
+              <div className="user-form-details-item">
+                <span>First name</span>
+                <input className="user-form-input" onChange={(e) => this.handleInput("firstname", e)} type="text" value={this.state.firstname} />
+              </div>
+              <div className="user-form-details-item">
+                <span>Last name</span>
+                <input className="user-form-input" onChange={(e) => this.handleInput("lastname", e)} type="text" value={this.state.lastname} />
+              </div>
+              <div className="user-form-details-item">
+                <span>City</span>
+                <input className="user-form-input" onChange={(e) => this.handleInput("city", e)} type="text" value={this.state.city} />
+              </div>
+              <div className="user-form-details-item">
+                <span>Country</span>
+                <input className="user-form-input" onChange={(e) => this.handleInput("country", e)} type="text" value={this.state.country} />
+              </div>
+            </div>
+            <span>Bio</span>
+            <textarea className="user-form-input" onChange={(e) => this.handleInput("bio", e)} value={this.state.bio} />
+            <input type="file" onChange={this.handleFile} />
           </form>
         </div>
-        <div className="upload-form-submit">
-          <span className="upload-form-submit-req">Required fields</span>
-          <div className="upload-form-button-container">
+        <div className="user-form-submit">
+          <span className="user-form-submit-req">Required fields</span>
+          <div className="user-form-button-container">
             <button className="button-nostyle" onClick={this.handleCancel}>Cancel</button>
-            <button className="button-track-form" form="submit-upload-form" type="submit">{submitText}</button>
+            <button className="button-track-form" form="submit-user-form" type="submit">{submitText}</button>
           </div>
         </div>
       </div>

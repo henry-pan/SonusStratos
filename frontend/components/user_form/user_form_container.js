@@ -6,7 +6,7 @@ import UserForm from "./user_form";
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[ownProps.userId],
   currentUser: state.entities.users[state.session.id],
-  errors: state.errors.user
+  errors: state.errors.users
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

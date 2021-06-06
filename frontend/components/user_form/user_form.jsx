@@ -85,7 +85,7 @@ class UserForm extends React.Component {
           <span className="upload-form-nav-item">Edit your profile</span>
         </nav>
         <div className="upload-form-body">
-          {previewArt}
+          {previewPic}
           <form id="submit-upload-form" className="upload-form-form" onSubmit={this.handleSubmit}>
             <input id="art-upload" type="file" accept=".png, .jpg, .jpeg" onChange={this.handleFile} />
             <label htmlFor="art-upload" className="upload-art-button">
@@ -93,6 +93,14 @@ class UserForm extends React.Component {
             </label>
             <span className="upload-form-label-req">Display name</span>
             <input className="upload-form-input" onChange={(e) => this.handleInput("username", e)} type="text" value={this.state.username} />
+            <span>First name</span>
+            <input className="upload-form-input" onChange={(e) => this.handleInput("firstname", e)} type="text" value={this.state.firstname} />
+            <span>Last name</span>
+            <input className="upload-form-input" onChange={(e) => this.handleInput("lastname", e)} type="text" value={this.state.lastname} />
+            <span>City</span>
+            <input className="upload-form-input" onChange={(e) => this.handleInput("city", e)} type="text" value={this.state.city} />
+            <span>Country</span>
+            <input className="upload-form-input" onChange={(e) => this.handleInput("country", e)} type="text" value={this.state.country} />
             <span>Bio</span>
             <textarea className="upload-form-input" onChange={(e) => this.handleInput("bio", e)} value={this.state.bio} />
             <input type="file" onChange={this.handleFile} />

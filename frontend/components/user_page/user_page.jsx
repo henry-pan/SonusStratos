@@ -10,9 +10,11 @@ import Footer from "../footer/footer";
 class UserPage extends React.Component {
   constructor(props) {
     super(props);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
+    this.props.fetchUser(this.props.match.params.userId);
     window.scrollTo(0, 0);
   }
 
@@ -36,8 +38,7 @@ class UserPage extends React.Component {
     const hasName = !!this.props.user.firstname || !!this.props.user.lastname;
     const hasLocation = !!this.props.user.city || !!this.props.user.country;
 
-    let editPage = null;
-    if (isOwnPage) editPage = <button className="user-edit-button" onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button>;
+    let editPage = isOwnPage ? <button className="user-edit-button" onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button> : null;
 
     return (
       <>
@@ -45,7 +46,7 @@ class UserPage extends React.Component {
       <Modal userId={this.props.user.id} />
       <div className="user-banner">
         <div className="user-header-container">
-          <img className="user-header-avatar" src={this.props.track.albumArt}/>
+          <img className="user-header-avatar" src={this.props.user.profilePic}/>
           <div className="user-header-content">
             <h1>{this.props.user.username}</h1>
             {hasName && this.renderSubtitle(this.props.user.firstname, this.props.user.lastname, " ")}
@@ -54,7 +55,12 @@ class UserPage extends React.Component {
         </div>
       </div>
       <div className="user-infobar">
-
+        <nav className="user-infobar-nav">
+          <span className="user-infobar-nav-item">Tracks</span>
+        </nav>
+        <div className="user-infobar-buttons-container">
+          {editPage}
+        </div>
       </div>
       <div className="content">
         <div className="content-main">
@@ -68,7 +74,7 @@ class UserPage extends React.Component {
             </div>
             <div className="user-bio-container">
               <p className="user-bio">
-                bio goes here
+                {this.props.user.bio}
               </p>
             </div>
           </div>

@@ -40,6 +40,20 @@ class UserPage extends React.Component {
 
     let editPage = isOwnPage ? <button className="user-action-button" onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button> : null;
 
+    const tracks = this.props.tracks.map((track, i) => (
+      <li key={track.id}>
+        <TrackItemList track={track}
+        updateTrackNoForm={this.props.updateTrackNoForm}
+        currentTrack={this.props.currentTrack}
+        isPlaying={this.props.isPlaying}
+        receivePlayTrack={this.props.receivePlayTrack}
+        playTrack={this.props.playTrack}
+        pauseTrack={this.props.pauseTrack}
+        />
+      </li>
+    ));
+
+
     return (
       <>
       <NavBarContainer />
@@ -61,16 +75,15 @@ class UserPage extends React.Component {
         </nav>
       </div>
       <div className="content">
-        <div className="content-main">
-          <div className="user-uploads-container">
-          </div>
+        <div className="content-main user-content">
+          <ul>{tracks}</ul>
         </div>
-        <div className="content-sidebar">
+        <div className="content-sidebar user-sidebar">
           <div className="user-about">
             <div className="user-stats">
               <div className="user-stats-tracks">
                 <h3>Tracks</h3>
-                <h4>{Object.values(this.props.tracks).length}</h4>
+                <h4>{this.props.tracks.length}</h4>
               </div>
             </div>
             <div className="user-bio">

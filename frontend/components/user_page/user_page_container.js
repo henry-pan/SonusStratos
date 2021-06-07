@@ -9,19 +9,13 @@ const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[ownProps.match.params.userId],
   tracks: Object.values(state.entities.tracks),
   users: state.entities.users,
-  currentUser: state.entities.users[state.session.id],
-  currentTrack: state.entities.tracks[state.ui.playbar.id],
-  isPlaying: state.ui.playbar.isPlaying,
+  currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: user => dispatch(fetchUser(user)),
   updateUser: user => dispatch(updateUser(user)),
-  openModal: modal => dispatch(openModal(modal)),
-  updateTrackNoForm: track => dispatch(updateTrackNoForm(track)),
-  receivePlayTrack: trackId => dispatch(receivePlayTrack(trackId)),
-  playTrack: () => dispatch(playTrack()),
-  pauseTrack: () => dispatch(pauseTrack())
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

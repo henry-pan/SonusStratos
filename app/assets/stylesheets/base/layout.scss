@@ -59,3 +59,17 @@ button {
   height: 26px;
   line-height: 20px;
 }
+
+.button-play {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background-color: $accent;
+  border-radius: 50%;
+  margin: 1px 0;
+  padding: 0;
+  margin-right: 5px;
+  &:hover {
+    background-color: #016c82;
+  }
+}

@@ -15,6 +15,8 @@ class PlayBar extends React.Component {
   render() {
     if (!this.props.currentTrack) return null;
 
+    let uploader = this.props.users[this.props.currentTrack.uploader_id];
+
     return (
 
       <div className="playbar">
@@ -31,7 +33,7 @@ class PlayBar extends React.Component {
           <div className="playbar-track-item">
             <img src={this.props.currentTrack.albumArt} />
             <div className="playbar-track-item-container">
-              <span><Link to={`/users/${this.props.currentTrack.uploader_id}`}>{this.props.currentTrack.uploader}</Link></span>
+              <span><Link to={`/users/${this.props.currentTrack.uploader_id}`}>{uploader.username}</Link></span>
               <h1><Link to={`/tracks/${this.props.currentTrack.id}`}>{this.props.currentTrack.title}</Link></h1>
             </div>
           </div>

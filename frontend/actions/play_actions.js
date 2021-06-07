@@ -2,9 +2,9 @@ export const RECEIVE_PLAY_TRACK = 'RECEIVE_PLAY_TRACK';
 export const PLAY_TRACK = 'PLAY_TRACK';
 export const PAUSE_TRACK = 'PAUSE_TRACK';
 
-export const receivePlayTrack = trackId => ({
+export const receivePlayTrack = track => ({
   type: RECEIVE_PLAY_TRACK,
-  trackId
+  track
 });
 
 export const playTrack = () => ({

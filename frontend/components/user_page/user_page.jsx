@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import NavBarContainer from "../navbar/navbar_container";
@@ -10,12 +9,23 @@ import Footer from "../footer/footer";
 class UserPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      userId: this.props.match.params.userId
+    };
     this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
     window.scrollTo(0, 0);
+  }
+
+  componentDidUpdate() {
+    if (this.state.userId !== this.props.match.params.userId) {
+      this.props.fetchUser(this.props.match.params.userId);
+      this.setState({ userId: this.props.match.params.userId });
+      window.scrollTo(0, 0);
+    }
   }
 
   handleEdit() {
@@ -32,7 +42,7 @@ class UserPage extends React.Component {
 
 
   render() {
-    if (!this.props.user) return <Redirect to="/" />;
+    if (!this.props.user) return null;
 
     const isOwnPage = this.props.currentUser && (this.props.currentUser.id === this.props.user.id);
     const hasName = !!this.props.user.firstname || !!this.props.user.lastname;
@@ -53,6 +63,18 @@ class UserPage extends React.Component {
         />
       </li>
     ));
+
+
+    const emptyTracks = (
+      <div className="user-tracks-empty">
+        <div className="user-tracks-empty-image"></div>
+        <h3>Nothing to hear here</h3>
+        <h4>{this.props.user.username} hasn't uploaded anything!</h4>
+      </div>
+    );
+
+    let trackList = emptyTracks;
+    if (this.props.user.numTracks !== 0) trackList = <ul>{tracks}</ul>;
 
 
     return (
@@ -77,14 +99,14 @@ class UserPage extends React.Component {
       </div>
       <div className="content">
         <div className="content-main user-content">
-          <ul>{tracks}</ul>
+          {trackList}
         </div>
         <div className="content-sidebar user-sidebar">
           <div className="user-about">
             <div className="user-stats">
               <div className="user-stats-tracks">
                 <h3>Tracks</h3>
-                <h4>{this.props.tracks.length}</h4>
+                <h4>{this.props.user.numTracks}</h4>
               </div>
             </div>
             <div className="user-bio">

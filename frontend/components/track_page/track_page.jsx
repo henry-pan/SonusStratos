@@ -84,7 +84,6 @@ class TrackPage extends React.Component {
     );
 
     let uploader = this.props.users[this.props.track.uploader_id];
-    console.log(uploader.numTracks);
 
     return (
       <>

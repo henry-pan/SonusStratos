@@ -5,6 +5,7 @@ import UserPage from './user_page';
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[ownProps.match.params.userId],
+  tracks: state.entities.tracks,
   currentUser: state.entities.users[state.session.id]
 });
 

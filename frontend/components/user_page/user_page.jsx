@@ -70,13 +70,11 @@ class UserPage extends React.Component {
             <div className="user-stats">
               <div className="user-stats-tracks">
                 <h3>Tracks</h3>
-                <h4>2</h4>
+                <h4>{Object.values(this.props.tracks).length}</h4>
               </div>
             </div>
             <div className="user-bio">
-              <p>
-                {this.props.user.bio}
-              </p>
+              <p>{this.props.user.bio}</p>
             </div>
           </div>
           <footer className="content-footer">

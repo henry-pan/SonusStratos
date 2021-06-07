@@ -38,7 +38,7 @@ class UserPage extends React.Component {
     const hasName = !!this.props.user.firstname || !!this.props.user.lastname;
     const hasLocation = !!this.props.user.city || !!this.props.user.country;
 
-    let editPage = isOwnPage ? <button className="user-edit-button" onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button> : null;
+    let editPage = isOwnPage ? <button className="user-action-button" onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button> : null;
 
     return (
       <>
@@ -57,10 +57,8 @@ class UserPage extends React.Component {
       <div className="user-infobar">
         <nav className="user-infobar-nav">
           <span className="user-infobar-nav-item">Tracks</span>
-        </nav>
-        <div className="user-infobar-buttons-container">
           {editPage}
-        </div>
+        </nav>
       </div>
       <div className="content">
         <div className="content-main">

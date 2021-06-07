@@ -9,7 +9,7 @@ else
   if track.uploader.profile_pic.attached?
     json.albumArt url_for(track.uploader.profile_pic)
   else
-    json.albumArt "https://www.henry-pan.com/seed/sonusstratos/stratos.jpg"
+    json.albumArt "https://www.henry-pan.com/seed/sonusstratos/avatars/Stratos.jpg"
   end
 end
 

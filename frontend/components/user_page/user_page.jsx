@@ -29,6 +29,7 @@ class UserPage extends React.Component {
   }
 
   handleEdit() {
+    if (this.props.user.seed) return;
     this.props.openModal("user");
   }
 
@@ -45,10 +46,11 @@ class UserPage extends React.Component {
     if (!this.props.user) return null;
 
     const isOwnPage = this.props.currentUser && (this.props.currentUser.id === this.props.user.id);
+    const buttonClass = this.props.user.seed ? "user-action-button-disabled" : "user-action-button";
     const hasName = !!this.props.user.firstname || !!this.props.user.lastname;
     const hasLocation = !!this.props.user.city || !!this.props.user.country;
 
-    let editPage = isOwnPage ? <button className="user-action-button" onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button> : null;
+    let editPage = isOwnPage ? <button className={buttonClass} onClick={this.handleEdit}><FontAwesomeIcon icon={faPen} /> Edit</button> : null;
 
     const tracks = this.props.tracks.map((track, i) => (
       <li key={track.id}>

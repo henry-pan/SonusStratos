@@ -163,6 +163,17 @@
   }
 }
 
+.track-uploader-numtracks {
+  font-size: 11px;
+  line-height: 12px;
+  color: $light-text;
+  margin-top: 5px;
+
+  &:hover {
+    color: $dark-text;
+  }
+}
+
 .track-text-container {
   display: flex;
   flex-direction: column;

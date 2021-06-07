@@ -43,6 +43,7 @@ class UserPage extends React.Component {
     const tracks = this.props.tracks.map((track, i) => (
       <li key={track.id}>
         <TrackItemList track={track}
+        uploader={this.props.users[track.uploader_id]}
         updateTrackNoForm={this.props.updateTrackNoForm}
         currentTrack={this.props.currentTrack}
         isPlaying={this.props.isPlaying}

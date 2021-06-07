@@ -73,7 +73,7 @@ class TrackItemList extends React.Component {
               {thisTrackPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
             </button>
             <div className="list-title">
-              <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.track.uploader}</Link></span>
+              <span><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.uploader.username}</Link></span>
               <h1><Link to={`/tracks/${this.props.track.id}`}>{this.props.track.title}</Link></h1>
             </div>
             </div>

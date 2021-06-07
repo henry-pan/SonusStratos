@@ -6,6 +6,7 @@ import TrackPage from './track_page';
 
 const mapStateToProps = (state, ownProps) => ({
   track: state.entities.tracks[ownProps.match.params.trackId],
+  users: state.entities.users,
   currentTrack: state.entities.tracks[state.ui.playbar.id],
   currentUser: state.entities.users[state.session.id]
 });

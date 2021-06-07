@@ -1,6 +1,5 @@
 json.extract! track, :id, :title, :description, :plays, :uploader_id
 
-json.uploader track.uploader.username
 json.posted time_ago_in_words(track.created_at)
 json.numComments track.comments.length
 
@@ -19,10 +18,4 @@ if track.audio_file.attached?
   json.audioFile "https://www.henry-pan.com/seed/sonusstratos/sample.ogg"
 else
   json.audioFile ""
-end
-
-if track.uploader.profile_pic.attached?
-  json.uploaderPic url_for(track.uploader.profile_pic)
-else
-  json.uploaderPic "https://www.henry-pan.com/seed/sonusstratos/stratos.jpg"
 end

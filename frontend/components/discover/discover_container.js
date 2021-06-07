@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.id],
   currentTrack: state.entities.tracks[state.ui.playbar.id],
   isPlaying: state.ui.playbar.isPlaying,
-  tracks: Object.values(state.entities.tracks)
+  tracks: Object.values(state.entities.tracks),
+  users: state.entities.users
 });
 
 const mapDispatchToProps = dispatch => ({

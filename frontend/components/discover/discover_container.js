@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllTracks, updateTrackNoForm } from '../../actions/track_actions';
-import { receivePlayTrack, playTrack, pauseTrack } from '../../actions/play_actions';
+import { fetchAllTracks } from '../../actions/track_actions';
 
 import Discover from './discover';
 

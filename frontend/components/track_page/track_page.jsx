@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faPen, faTrash, faMusic } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPen, faTrash, faMusic } from "@fortawesome/free-solid-svg-icons";
 import NavBarContainer from "../navbar/navbar_container";
+import PlayButtonContainer from "../playbutton/playbutton_container";
 import Modal from "../modal/modal";
 import Footer from "../footer/footer";
 import CommentFormContainer from "../comment_form/comment_form_container";
@@ -11,44 +12,11 @@ import CommentsContainer from "../comments/comments_container";
 class TrackPage extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      alreadyPlayed: false,
-      playing: false,
-      editing: false,
-      audio: null
-    };
     
-    this.handlePlay = this.handlePlay.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handlePlay() {
-    if (!this.state.alreadyPlayed) {
-      this.props.updateTrackNoForm({
-        id: this.props.track.id,
-        plays: this.props.track.plays + 1
-      });
-      this.setState({ alreadyPlayed: true });
-    }
-    
-    let currentTrackId = null;
-    if (this.props.currentTrack) currentTrackId = this.props.currentTrack.id;
-
-    if (currentTrackId !== this.props.track.id){
-      this.props.receivePlayTrack(this.props.track.id);
-    }
-
-    this.setState({ playing: !this.state.playing });
-    if (!this.state.playing) {
-      this.props.playTrack();
-      if (currentTrackId) document.getElementById("audio").play();
-    } else {
-      this.props.pauseTrack();
-      if (currentTrackId) document.getElementById("audio").pause();
-    }
-  }
 
   handleEdit() {
     this.props.openModal("edit");
@@ -59,11 +27,7 @@ class TrackPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchTrack(this.props.match.params.trackId)
-    .then(()=>{
-      let audio = new Audio(this.props.track.audioFile);
-      this.setState({ audio: audio });
-    });
+    this.props.fetchTrack(this.props.match.params.trackId);
     window.scrollTo(0, 0);
   }
 
@@ -92,9 +56,7 @@ class TrackPage extends React.Component {
       <div className="track-player">
         <div className="track-player-details-container">
           <div className="track-player-title-container">
-            <button className="track-player-play-button" onClick={this.handlePlay}>
-              {this.state.playing ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
-            </button>
+            <PlayButtonContainer track={this.props.track} size="large" />
             <div className="track-player-title">
               <span><Link to={`/users/${this.props.track.uploader_id}`}>{uploader.username}</Link></span>
               <h1>{this.props.track.title}</h1>

@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions';
-import { updateTrackNoForm } from '../../actions/track_actions';
-import { receivePlayTrack, playTrack, pauseTrack } from '../../actions/play_actions';
 import UserPage from './user_page';
 
 const mapStateToProps = (state, ownProps) => ({

@@ -45,9 +45,11 @@ class PlayButton extends React.Component {
   render() {
 
     let thisTrackPlaying = this.isCurrentTrack() ? (this.state.playing && this.props.isPlaying) : false;
+    let buttonClass = "button-play";
+    if (this.props.size === "large") buttonClass += "-large";
 
     return (
-      <button className="button-play" onClick={this.handlePlay}>
+      <button className={buttonClass} onClick={this.handlePlay}>
         {thisTrackPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />}
       </button>
     )

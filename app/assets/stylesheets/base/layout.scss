@@ -73,3 +73,18 @@ button {
     background-color: #016c82;
   }
 }
+
+
+.button-play-large {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  background-color: $accent;
+  border-radius: 50%;
+  margin: 1px 0;
+  padding: 0;
+  margin-right: 11px;
+  &:hover {
+    background-color: #016c82;
+  }
+}

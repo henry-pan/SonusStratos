@@ -41,7 +41,6 @@ class UserPage extends React.Component {
     return <h2>{subtitle}</h2>;
   }
 
-
   render() {
     if (!this.props.user) return null;
 
@@ -54,9 +53,7 @@ class UserPage extends React.Component {
 
     const tracks = this.props.tracks.map((track, i) => (
       <li key={track.id}>
-        <TrackItemList track={track}
-        uploader={this.props.users[track.uploader_id]}
-        />
+        <TrackItemList track={track} uploader={this.props.users[track.uploader_id]} />
       </li>
     ));
 

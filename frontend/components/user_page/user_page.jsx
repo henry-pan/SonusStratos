@@ -68,10 +68,13 @@ class UserPage extends React.Component {
         <div className="content-sidebar">
           <div className="user-about">
             <div className="user-stats">
-
+              <div className="user-stats-tracks">
+                <h3>Tracks</h3>
+                <h4>2</h4>
+              </div>
             </div>
-            <div className="user-bio-container">
-              <p className="user-bio">
+            <div className="user-bio">
+              <p>
                 {this.props.user.bio}
               </p>
             </div>

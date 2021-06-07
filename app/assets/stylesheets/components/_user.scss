@@ -23,7 +23,6 @@
   width: 100%;
 }
 
-
 .user-header-content {
   display: flex;
   flex-direction: column;
@@ -51,7 +50,6 @@
   }
 }
 
-
 .user-header-avatar {
   width: 200px;
   height: 200px;
@@ -75,7 +73,6 @@
   }
 }
 
-
 .user-infobar-nav {
   display: flex;
   justify-content: space-between;
@@ -96,7 +93,6 @@
   height: 33px;
 }
 
-
 .user-action-button {
   background-color: transparent;
   height: 26px;
@@ -113,9 +109,35 @@
   }
 }
 
+.user-stats {
+  max-width: 300px;
+  margin-bottom: 14px;
+}
 
+.user-stats-tracks {
+  display: flex;
+  flex-direction: column;
+  color: $light-text;
+  h3 {
+    line-height: 0.9;
+    padding: 5px 0 3px;
+    font-size: 12px;
+  }
+  h4 {
+    font-size: 20px;
+    line-height: 1.2;
 
+  }
+}
 
+.user-bio {
+  max-width: 300px;
+  margin-bottom: 20px;
+  p {
+    margin: 0 0 10px;
+    white-space: pre-wrap;
+  }
+}
 
 
 

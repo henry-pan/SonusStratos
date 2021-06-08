@@ -18,7 +18,7 @@ else
 end
 
 if track.seed_track != ""
-  json.audioFile "https://www.henry-pan.com/seed/sonusstratos/tracks/#{track.id}.ogg"
+  json.audioFile "https://www.henry-pan.com/seed/sonusstratos/tracks/#{track.seed_track}.ogg"
 else
   if track.audio_file.attached?
     json.audioFile url_for(track.audio_file)

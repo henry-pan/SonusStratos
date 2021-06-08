@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_083758) do
+ActiveRecord::Schema.define(version: 2021_06_08_030546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_06_07_083758) do
     t.integer "uploader_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "seed_cover", default: ""
+    t.string "seed_track", default: ""
     t.index ["title"], name: "index_tracks_on_title"
     t.index ["uploader_id", "title"], name: "index_tracks_on_uploader_id_and_title", unique: true
   end

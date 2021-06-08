@@ -3,19 +3,26 @@ json.extract! track, :id, :title, :description, :plays, :uploader_id
 json.posted time_ago_in_words(track.created_at)
 json.numComments track.comments.length
 
-if track.album_art.attached?
-  json.albumArt url_for(track.album_art)
+if track.seed_cover != ""
+  json.albumArt "https://www.henry-pan.com/seed/sonusstratos/covers/#{track.seed_cover}.jpg"
 else
-  if track.uploader.profile_pic.attached?
-    json.albumArt url_for(track.uploader.profile_pic)
+  if track.album_art.attached?
+    json.albumArt url_for(track.album_art)
   else
-    json.albumArt "https://www.henry-pan.com/seed/sonusstratos/avatars/Stratos.jpg"
+    if track.uploader.profile_pic.attached?
+      json.albumArt url_for(track.uploader.profile_pic)
+    else
+      json.albumArt "https://www.henry-pan.com/seed/sonusstratos/avatars/Stratos.jpg"
+    end
   end
 end
 
-if track.audio_file.attached?
-  # json.audioFile url_for(track.audio_file)
-  json.audioFile "https://www.henry-pan.com/seed/sonusstratos/sample.ogg"
+if track.seed_track != ""
+  json.audioFile "https://www.henry-pan.com/seed/sonusstratos/tracks/#{track.id}.ogg"
 else
-  json.audioFile ""
+  if track.audio_file.attached?
+    json.audioFile url_for(track.audio_file)
+  else
+    json.audioFile "https://www.henry-pan.com/seed/sonusstratos/sample.ogg"
+  end
 end

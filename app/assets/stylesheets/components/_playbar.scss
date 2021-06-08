@@ -18,15 +18,23 @@
   width: 1240px;
 }
 
+.playbar-controls {
+  display: flex;
+  justify-content: space-evenly;
+  width: 200px;
+}
+
+.playbar-progressbar {
+  flex: 1;
+}
+
 .playbar-track-item {
   display: flex;
-  position: absolute;
   align-items: center;
   height: 48px;
   width: 360px;
   padding: 0 8px;
   box-sizing: border-box;
-  right: 0;
   img {
     width: 30px;
     height: 30px;

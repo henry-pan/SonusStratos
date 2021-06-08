@@ -1,15 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faStepBackward, faRedoAlt, faVolumeMute, faVolumeDown, faVolumeUp  } from "@fortawesome/free-solid-svg-icons";
 
 class PlayBar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      repeat: false,
+      mute: false,
+      volume: 0.5,
       elapsed: 0,
-      length: 0,
-      volume: 0.5
+      length: 0
     }
+
+    this.toggleRepeat = this.toggleRepeat.bind(this);
+    this.handleRestart = this.handleRestart.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
+    this.handleSeek = this.handleSeek.bind(this);
+    this.toggleMute = this.toggleMute.bind(this);
+    this.handleVolume = this.handleVolume.bind(this);
+  }
+
+  toggleRepeat() {
+
+  }
+
+  handleRestart() {
+
+  }
+
+
+  handlePlay() {
+
+  }
+
+  handleSeek() {
+
+  }
+
+  toggleMute() {
+    this.setState({ mute: !this.state.mute});
+  }
+
+  handleVolume() {
+
   }
 
   render() {
@@ -17,18 +53,24 @@ class PlayBar extends React.Component {
 
     let uploader = this.props.users[this.props.currentTrack.uploader_id];
 
-    return (
+    let volume = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} /> : <FontAwesomeIcon icon={faVolumeDown} />;
+    let volumeButton = this.state.mute ? <FontAwesomeIcon icon={faVolumeMute} /> : volume;
 
+    return (
       <div className="playbar">
         <div className="playbar-container">
-          <audio id="audio" controls autoPlay src={this.props.currentTrack.audioFile}>
-            Your browser does not support audio.
-          </audio>
           <div className="playbar-controls">
+            <button className="button-playbar" onClick={this.handleRestart}><FontAwesomeIcon icon={faStepBackward} /></button>
+            <button className="button-playbar" onClick={this.handlePlay}><FontAwesomeIcon icon={faPlay} /></button>
+            <button className="button-playbar" onClick={this.toggleRepeat}><FontAwesomeIcon icon={faRedoAlt} /></button>
           </div>
           <div className="playbar-progressbar">
+            <audio id="audio" controls autoPlay src={this.props.currentTrack.audioFile}>
+              Your browser does not support audio.
+            </audio>
           </div>
           <div className="playbar-volume">
+            <button className="button-playbar" onClick={this.toggleMute}>{volumeButton}</button>
           </div>
           <div className="playbar-track-item">
             <img src={this.props.currentTrack.albumArt} />

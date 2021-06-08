@@ -88,3 +88,13 @@ button {
     background-color: #016c82;
   }
 }
+
+.button-playbar {
+  margin: 0;
+  padding: 0;
+  width: 24px;
+  height: 100%;
+  background-color: transparent;
+  border: 0;
+  color: $dark-text;
+}

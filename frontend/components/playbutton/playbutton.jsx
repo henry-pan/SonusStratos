@@ -7,15 +7,14 @@ class PlayButton extends React.Component {
     super(props);
 
     this.state = {
-      alreadyPlayed: false,
-      playing: false
+      alreadyPlayed: this.isCurrentPlaying(),
+      playing: this.isCurrentPlaying()
     };
     
     this.handlePlay = this.handlePlay.bind(this);
   }
 
   handlePlay() {
-
     if (!this.state.alreadyPlayed) {
       this.props.updateTrackNoForm({
         id: this.props.track.id,
@@ -42,8 +41,11 @@ class PlayButton extends React.Component {
     return this.props.currentTrack.id === this.props.track.id;
   }
 
-  render() {
+  isCurrentPlaying() {
+    return this.props.isPlaying && this.isCurrentTrack();
+  }
 
+  render() {
     let thisTrackPlaying = this.isCurrentTrack() ? (this.state.playing && this.props.isPlaying) : false;
     let buttonClass = "button-play";
     if (this.props.size === "large") buttonClass += "-large";

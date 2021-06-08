@@ -51,7 +51,7 @@ export default ({ currentUser, logout, openModal }) => {
           </div>
           <div className="splash-track">
             <img src={window.fates} />
-            <h2>Thorn in You (Roar)</h2>
+            <h2>End of All (Below)</h2>
             <h3>SongstressAzura</h3>
           </div>
           <div className="splash-track">
@@ -81,7 +81,7 @@ export default ({ currentUser, logout, openModal }) => {
           </div>
           <div className="splash-track">
             <img src={window.kh3} />
-            <h2>Vector to the Heavens -Xion-</h2>
+            <h2>Hearts as One</h2>
             <h3>Roxmas</h3>
           </div>
           <div className="splash-track">

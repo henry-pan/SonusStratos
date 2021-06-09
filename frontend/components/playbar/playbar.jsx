@@ -15,6 +15,8 @@ class PlayBar extends React.Component {
       length: 0
     }
 
+    this.audioElement = document.getElementById("audio");
+
     this.toggleRepeat = this.toggleRepeat.bind(this);
     this.handleRestart = this.handleRestart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -24,7 +26,7 @@ class PlayBar extends React.Component {
   }
 
   toggleRepeat() {
-
+    this.setState({ repeat: !this.state.repeat });
   }
 
   handleRestart() {
@@ -45,6 +47,11 @@ class PlayBar extends React.Component {
   }
 
   handleVolume() {
+    this.audioElement.volume = e.target.value;
+    this.setState({ volume: e.target.value, mute: false });
+  }
+
+  calcTime() {
 
   }
 
@@ -65,9 +72,8 @@ class PlayBar extends React.Component {
             <button className="button-playbar" onClick={this.toggleRepeat}><FontAwesomeIcon icon={faRedoAlt} /></button>
           </div>
           <div className="playbar-progressbar">
-            <audio id="audio" controls autoPlay src={this.props.currentTrack.audioFile}>
-              Your browser does not support audio.
-            </audio>
+            <audio id="audio" controls autoPlay src={this.props.currentTrack.audioFile}></audio>
+            <input type="range" className="playbar-seeker" onChange={this.handleSeek} value="0" max={this.state.length} />
           </div>
           <div className="playbar-volume">
             <button className="button-playbar" onClick={this.toggleMute}>{volumeButton}</button>

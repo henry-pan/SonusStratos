@@ -8,8 +8,8 @@ class PlayBar extends React.Component {
     super(props);
 
     this.state = {
-      repeat: false,
-      mute: false,
+      loop: false,
+      muted: false,
       volume: 0.5,
       elapsed: 0,
       length: 0
@@ -17,7 +17,7 @@ class PlayBar extends React.Component {
 
     this.audioElement = document.getElementById("audio");
 
-    this.toggleRepeat = this.toggleRepeat.bind(this);
+    this.toggleLoop = this.toggleLoop.bind(this);
     this.handleRestart = this.handleRestart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handleSeek = this.handleSeek.bind(this);
@@ -25,34 +25,43 @@ class PlayBar extends React.Component {
     this.handleVolume = this.handleVolume.bind(this);
   }
 
-  toggleRepeat() {
-    this.setState({ repeat: !this.state.repeat });
+  toggleLoop() {
+    this.setState({ loop: !this.state.loop });
+  }
+
+  toggleMute() {
+    this.setState({ muted: !this.state.muted});
   }
 
   handleRestart() {
-
+    document.getElementById("audio").currentTime = 0
+    this.setState({ elapsed: 0 });
   }
+
+
 
 
   handlePlay() {
 
   }
 
-  handleSeek() {
+  handleSeek(e) {
+    this.audioElement.currentTime = e.target.value;
+    this.setState({ elapsed: e.target.value });
 
   }
 
-  toggleMute() {
-    this.setState({ mute: !this.state.mute});
-  }
-
-  handleVolume() {
+  handleVolume(e) {
     this.audioElement.volume = e.target.value;
     this.setState({ volume: e.target.value, mute: false });
   }
 
-  calcTime() {
-
+  calcTime(time) {
+    let min = Math.floor(time / 60);
+    let sec = Math.floor(time % 60);
+    let formattedMins = min <= 9 ? `0${min}` : min;
+    let formattedSecs = sec <= 9 ? `0${sec}` : sec;
+    return `${formattedMins}:${formattedSecs}`;
   }
 
   render() {
@@ -61,18 +70,25 @@ class PlayBar extends React.Component {
     let uploader = this.props.users[this.props.currentTrack.uploader_id];
 
     let volume = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} /> : <FontAwesomeIcon icon={faVolumeDown} />;
-    let volumeButton = this.state.mute ? <FontAwesomeIcon icon={faVolumeMute} /> : volume;
+    let volumeButton = this.state.muted ? <FontAwesomeIcon icon={faVolumeMute} /> : volume;
+    let playButton = <FontAwesomeIcon icon={faPlay} />;
+
+    let loopClass = this.state.loop ? "button-playbar btn-active" : "button-playbar";
 
     return (
       <div className="playbar">
         <div className="playbar-container">
           <div className="playbar-controls">
             <button className="button-playbar" onClick={this.handleRestart}><FontAwesomeIcon icon={faStepBackward} /></button>
-            <button className="button-playbar" onClick={this.handlePlay}><FontAwesomeIcon icon={faPlay} /></button>
-            <button className="button-playbar" onClick={this.toggleRepeat}><FontAwesomeIcon icon={faRedoAlt} /></button>
+            <button className="button-playbar" onClick={this.handlePlay}>{playButton}</button>
+            <button className={loopClass} onClick={this.toggleLoop}><FontAwesomeIcon icon={faRedoAlt} /></button>
           </div>
           <div className="playbar-progressbar">
-            <audio id="audio" controls autoPlay src={this.props.currentTrack.audioFile}></audio>
+            <audio id="audio" controls autoPlay
+              src={this.props.currentTrack.audioFile}
+              loop={this.state.loop}
+              muted={this.state.muted}
+              volume={this.state.volume} />
             <input type="range" className="playbar-seeker" onChange={this.handleSeek} value="0" max={this.state.length} />
           </div>
           <div className="playbar-volume">

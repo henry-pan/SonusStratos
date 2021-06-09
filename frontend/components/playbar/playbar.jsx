@@ -12,12 +12,14 @@ class PlayBar extends React.Component {
       muted: false,
       volume: 0.5,
       elapsed: 0,
-      duration: 0
+      duration: 0,
+      remainder: false
     }
 
 
     this.toggleLoop = this.toggleLoop.bind(this);
     this.toggleMute = this.toggleMute.bind(this);
+    this.toggleRemainder = this.toggleRemainder.bind(this);
     this.handleRestart = this.handleRestart.bind(this);
     this.setDuration = this.setDuration.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -31,6 +33,10 @@ class PlayBar extends React.Component {
 
   toggleMute() {
     this.setState({ muted: !this.state.muted});
+  }
+
+  toggleRemainder() {
+    this.setState({ remainder: !this.state.remainder });
   }
 
   handleRestart() {
@@ -77,7 +83,7 @@ class PlayBar extends React.Component {
     let loopClass = this.state.loop ? "button-playbar accent" : "button-playbar";
 
     let elapsed = this.calcTime(this.state.elapsed);
-    let duration = this.calcTime(this.state.duration);
+    let duration = this.state.remainder ? "-" + this.calcTime(this.state.duration - this.state.elapsed) : this.calcTime(this.state.duration);
 
     return (
       <div className="playbar">
@@ -97,7 +103,7 @@ class PlayBar extends React.Component {
                 onLoadedMetadata={this.setDuration} />
               <input type="range" className="playbar-seeker" onChange={this.handleSeek} value="0" max={this.state.length} />
             </div>
-            <span>{duration}</span>
+            <span onClick={this.toggleRemainder}>{duration}</span>
           </div>
           <div className="playbar-volume">
             <button className="button-playbar button-volume" onClick={this.toggleMute}>{volumeButton}</button>

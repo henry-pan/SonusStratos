@@ -100,7 +100,7 @@ class PlayBar extends React.Component {
             <span>{duration}</span>
           </div>
           <div className="playbar-volume">
-            <button className="button-playbar" onClick={this.toggleMute}>{volumeButton}</button>
+            <button className="button-playbar button-volume" onClick={this.toggleMute}>{volumeButton}</button>
           </div>
           <div className="playbar-track-item">
             <img src={this.props.currentTrack.albumArt} />

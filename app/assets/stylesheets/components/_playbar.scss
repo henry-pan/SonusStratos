@@ -25,7 +25,26 @@
 }
 
 .playbar-progressbar {
+  display: flex;
+  align-items: center;
   flex: 1;
+  padding: 0 20px;
+  span:first-child {
+    margin-right: 10px;
+  }
+  span:last-child {
+    margin-left: 10px;
+  }
+}
+
+.playbar-seeker-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.playbar-seeker {
+  width: 100%;
 }
 
 .playbar-track-item {

@@ -16,38 +16,25 @@ class PlayBar extends React.Component {
       remainder: false
     }
 
-
-    this.toggleLoop = this.toggleLoop.bind(this);
-    this.toggleMute = this.toggleMute.bind(this);
-    this.toggleRemainder = this.toggleRemainder.bind(this);
-    this.handleRestart = this.handleRestart.bind(this);
     this.setDuration = this.setDuration.bind(this);
+    this.handleRestart = this.handleRestart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.handleSeek = this.handleSeek.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
   }
 
-  toggleLoop() {
-    this.setState({ loop: !this.state.loop });
-  }
-
-  toggleMute() {
-    this.setState({ muted: !this.state.muted});
-  }
-
-  toggleRemainder() {
-    this.setState({ remainder: !this.state.remainder });
-  }
-
-  handleRestart() {
-    document.getElementById("audio").currentTime = 0;
-    this.setState({ elapsed: 0 });
+  toggleField(key) {
+    this.setState({ [key]: !this.state[key] });
   }
 
   setDuration() {
     this.setState({ duration: document.getElementById("audio").duration });
   }
 
+  handleRestart() {
+    document.getElementById("audio").currentTime = 0;
+    this.setState({ elapsed: 0 });
+  }
 
   handlePlay() {
 
@@ -56,12 +43,11 @@ class PlayBar extends React.Component {
   handleSeek(e) {
     document.getElementById("audio").currentTime = e.target.value;
     this.setState({ elapsed: e.target.value });
-
   }
 
   handleVolume(e) {
     document.getElementById("audio").volume = e.target.value;
-    this.setState({ volume: e.target.value, mute: false });
+    this.setState({ volume: e.target.value, muted: false });
   }
 
   calcTime(time) {
@@ -91,7 +77,7 @@ class PlayBar extends React.Component {
           <div className="playbar-controls">
             <button className="button-playbar" onClick={this.handleRestart}><FontAwesomeIcon icon={faStepBackward} /></button>
             <button className="button-playbar" onClick={this.handlePlay}>{playButton}</button>
-            <button className={loopClass} onClick={this.toggleLoop}><FontAwesomeIcon icon={faRedoAlt} /></button>
+            <button className={loopClass} onClick={()=>this.toggleField("loop")}><FontAwesomeIcon icon={faRedoAlt} /></button>
           </div>
           <div className="playbar-progressbar">
             <span className="accent">{elapsed}</span>
@@ -101,12 +87,12 @@ class PlayBar extends React.Component {
                 loop={this.state.loop}
                 muted={this.state.muted}
                 onLoadedMetadata={this.setDuration} />
-              <input type="range" className="playbar-seeker" onChange={this.handleSeek} value="0" max={this.state.length} />
+              <input type="range" className="playbar-seeker" onInput={this.handleSeek} min="0" max={this.state.duration} />
             </div>
-            <span onClick={this.toggleRemainder}>{duration}</span>
+            <span onClick={()=>this.toggleField("remainder")}>{duration}</span>
           </div>
           <div className="playbar-volume">
-            <button className="button-playbar button-volume" onClick={this.toggleMute}>{volumeButton}</button>
+            <button className="button-playbar button-volume" onClick={()=>this.toggleField("muted")}>{volumeButton}</button>
           </div>
           <div className="playbar-track-item">
             <img src={this.props.currentTrack.albumArt} />

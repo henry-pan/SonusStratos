@@ -29,10 +29,8 @@ class PlayButton extends React.Component {
 
     if (!this.state.playing) {
       this.props.playTrack();
-      if (this.props.currentTrack) document.getElementById("audio").play();
     } else {
       this.props.pauseTrack();
-      if (this.props.currentTrack) document.getElementById("audio").pause();
     }
   }
 

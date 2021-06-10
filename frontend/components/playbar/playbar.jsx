@@ -28,6 +28,16 @@ class PlayBar extends React.Component {
     this.hideHover = this.hideHover.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      if (this.props.isPlaying) {
+        if (this.props.currentTrack) document.getElementById("audio").play();
+      } else {
+        if (this.props.currentTrack) document.getElementById("audio").pause();
+      }
+    }
+  }
+
   toggleField(key) {
     this.setState({ [key]: !this.state[key] });
   }
@@ -44,10 +54,8 @@ class PlayBar extends React.Component {
   handlePlay() {
     if (!this.props.isPlaying) {
       this.props.playTrack();
-      if (this.props.currentTrack) document.getElementById("audio").play();
     } else {
       this.props.pauseTrack();
-      if (this.props.currentTrack) document.getElementById("audio").pause();
     }
   }
 
@@ -81,7 +89,7 @@ class PlayBar extends React.Component {
   showHover(){
     this.setState({ hover: true });
   }
-  
+
   hideHover(){
     this.setState({ hover: false });
   }

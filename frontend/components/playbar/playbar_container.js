@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.id],
   currentTrack: state.ui.playbar.track,
   isPlaying: state.ui.playbar.isPlaying,
-  users: state.entities.users,
+  users: state.entities.users
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -13,7 +13,8 @@ class PlayBar extends React.Component {
       volume: 0.5,
       elapsed: 0,
       duration: 0,
-      remainder: false
+      remainder: false,
+      hover: false
     }
 
     this.setDuration = this.setDuration.bind(this);
@@ -22,6 +23,8 @@ class PlayBar extends React.Component {
     this.playTrack = this.playTrack.bind(this);
     this.handleSeek = this.handleSeek.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
+    this.showHover = this.showHover.bind(this);
+    this.hideHover = this.hideHover.bind(this);
   }
 
   toggleField(key) {
@@ -69,13 +72,26 @@ class PlayBar extends React.Component {
     return `${min}:${formattedSecs}`;
   }
 
+  showHover(){
+    this.setState({ hover: true });
+  }
+  hideHover(){
+    this.setState({ hover: false });
+  }
+
+
   render() {
     if (!this.props.currentTrack) return null;
 
     let uploader = this.props.users[this.props.currentTrack.uploader_id];
 
-    let volumeOn = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} /> : <FontAwesomeIcon icon={faVolumeDown} />;
-    let volumeButton = this.state.muted ? <FontAwesomeIcon icon={faVolumeMute} /> : volumeOn;
+    let volumeOn = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
+    let volumeButton = this.state.muted ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
+    let volumeBar = (
+      <div className="playbar-volumebar-container"  onMouseEnter={this.showHover} onMouseLeave={this.hideHover}>
+        <input type="range" className="playbar-volumebar" onInput={this.handleVolume} min="0" max={1} value={this.state.volume} step="0.01" />
+      </div>
+    );
     let playButton = this.props.isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />;
 
     let loopClass = this.state.loop ? "button-playbar accent" : "button-playbar";
@@ -104,7 +120,8 @@ class PlayBar extends React.Component {
             </div>
             <span onClick={()=>this.toggleField("remainder")}>{duration}</span>
           </div>
-          <div className="playbar-volume">
+          <div className="playbar-volume" onMouseEnter={this.showHover} onMouseLeave={this.hideHover}>
+            {this.state.hover && volumeBar}
             <button className="button-playbar button-volume" onClick={()=>this.toggleField("muted")}>{volumeButton}</button>
           </div>
           <div className="playbar-track-item">

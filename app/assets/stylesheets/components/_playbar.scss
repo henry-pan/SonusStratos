@@ -53,6 +53,56 @@
 .playbar-volume {
   margin-left: 15px;
   margin-right: 8px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.playbar-volumebar-container {
+  width: 32px;
+  height: 120px;
+  position: absolute;
+  bottom: 42px;
+  right: 1px;
+  z-index: 10;
+  box-sizing: border-box;
+  background-color: $outer-body;
+  border: 1px solid #cecece;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    border-style: solid;
+    left: 9px;
+  }
+  
+  &:before {
+    box-shadow: -3px 3px 4px rgba(0,0,0,.1);
+    bottom: -10px;
+    border-color: transparent transparent $light-border $light-border;
+    border-width: 5px;
+    z-index: 0;
+  }
+
+  &:after {
+    bottom: -8px;
+    border-color: transparent transparent $outer-body $outer-body;
+    border-width: 4px;
+    z-index: 1;
+  }
+
+  input {
+    width: 100px;
+    height: 32px;
+    transform-origin: 50px 50px;
+    transform: rotate(-90deg);
+  }
 }
 
 .playbar-track-item {

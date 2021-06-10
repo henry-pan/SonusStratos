@@ -21,6 +21,7 @@ class PlayBar extends React.Component {
     this.handleRestart = this.handleRestart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
     this.playTrack = this.playTrack.bind(this);
+    this.handleEnded = this.handleEnded.bind(this);
     this.handleSeek = this.handleSeek.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
     this.showHover = this.showHover.bind(this);
@@ -55,6 +56,11 @@ class PlayBar extends React.Component {
     if (this.props.isPlaying) requestAnimationFrame(this.playTrack);
   }
 
+  handleEnded(){
+    this.props.pauseTrack();
+    this.handleRestart();
+  }
+
   handleSeek(e) {
     document.getElementById("audio").currentTime = e.target.value;
     this.setState({ elapsed: e.target.value });
@@ -75,6 +81,7 @@ class PlayBar extends React.Component {
   showHover(){
     this.setState({ hover: true });
   }
+  
   hideHover(){
     this.setState({ hover: false });
   }
@@ -89,7 +96,7 @@ class PlayBar extends React.Component {
     let volumeButton = this.state.muted ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
     let volumeBar = (
       <div className="playbar-volumebar-container"  onMouseEnter={this.showHover} onMouseLeave={this.hideHover}>
-        <input type="range" className="playbar-volumebar" onInput={this.handleVolume} min="0" max={1} value={this.state.volume} step="0.01" />
+        <input type="range" className="playbar-volumebar" onChange={this.handleVolume} min="0" max={1} value={this.state.volume} step="0.01" />
       </div>
     );
     let playButton = this.props.isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />;
@@ -115,8 +122,9 @@ class PlayBar extends React.Component {
                 loop={this.state.loop}
                 muted={this.state.muted}
                 onLoadedMetadata={this.setDuration}
-                onPlaying={this.playTrack} />
-              <input type="range" className="playbar-seeker" onInput={this.handleSeek} min="0" max={this.state.duration} value={this.state.elapsed} step="0.01" />
+                onPlaying={this.playTrack}
+                onEnded={this.handleEnded} />
+              <input type="range" className="playbar-seeker" onChange={this.handleSeek} min="0" max={this.state.duration} value={this.state.elapsed} step="0.01" />
             </div>
             <span onClick={()=>this.toggleField("remainder")}>{duration}</span>
           </div>

@@ -11,12 +11,14 @@ class PlayBar extends React.Component {
       loop: false,
       muted: false,
       volume: 0.5,
+      mutedVolume: 0.5,
       elapsed: 0,
       duration: 0,
       remainder: false,
       hover: false
     }
 
+    this.toggleMute = this.toggleMute.bind(this);
     this.setDuration = this.setDuration.bind(this);
     this.handleRestart = this.handleRestart.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -24,8 +26,6 @@ class PlayBar extends React.Component {
     this.handleEnded = this.handleEnded.bind(this);
     this.handleSeek = this.handleSeek.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
-    this.showHover = this.showHover.bind(this);
-    this.hideHover = this.hideHover.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -40,6 +40,14 @@ class PlayBar extends React.Component {
 
   toggleField(key) {
     this.setState({ [key]: !this.state[key] });
+  }
+
+  toggleMute() {
+    if (this.state.muted) {
+      this.setState({ muted: false, volume: this.state.mutedVolume });
+    } else {
+      this.setState({ muted: true, volume: 0, mutedVolume: this.state.volume });
+    }
   }
 
   setDuration() {
@@ -86,14 +94,9 @@ class PlayBar extends React.Component {
     return `${min}:${formattedSecs}`;
   }
 
-  showHover(){
-    this.setState({ hover: true });
+  handleHover(mode) {
+    this.setState({ hover: mode });
   }
-
-  hideHover(){
-    this.setState({ hover: false });
-  }
-
 
   render() {
     if (!this.props.currentTrack) return null;
@@ -101,12 +104,18 @@ class PlayBar extends React.Component {
     let uploader = this.props.users[this.props.currentTrack.uploader_id];
 
     let volumeOn = this.state.volume >= 0.5 ? <FontAwesomeIcon icon={faVolumeUp} size="lg" /> : <FontAwesomeIcon icon={faVolumeDown} size="lg" />;
-    let volumeButton = this.state.muted ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
+    let volumeButton = (this.state.muted || this.state.volume <= 0) ? <FontAwesomeIcon icon={faVolumeMute} size="lg" /> : volumeOn;
     let volumeBar = (
-      <div className="playbar-volumebar-container"  onMouseEnter={this.showHover} onMouseLeave={this.hideHover}>
-        <input type="range" className="playbar-volumebar" onChange={this.handleVolume} min="0" max={1} value={this.state.volume} step="0.01" />
+      <div className="playbar-volumebar-container"  onMouseEnter={()=>this.handleHover(true)}>
+        <input type="range" className="playbar-volumebar"
+          onChange={this.handleVolume}
+          min="0"
+          max="1"
+          value={this.state.volume}
+          step="0.01" />
       </div>
     );
+
     let playButton = this.props.isPlaying ? <FontAwesomeIcon icon={faPause} /> : <FontAwesomeIcon icon={faPlay} />;
 
     let loopClass = this.state.loop ? "button-playbar accent" : "button-playbar";
@@ -132,13 +141,18 @@ class PlayBar extends React.Component {
                 onLoadedMetadata={this.setDuration}
                 onPlaying={this.playTrack}
                 onEnded={this.handleEnded} />
-              <input type="range" className="playbar-seeker" onChange={this.handleSeek} min="0" max={this.state.duration} value={this.state.elapsed} step="0.01" />
+              <input type="range" className="playbar-seeker"
+                onChange={this.handleSeek}
+                min="0"
+                max={this.state.duration}
+                value={this.state.elapsed}
+                step="0.01" />
             </div>
             <span onClick={()=>this.toggleField("remainder")}>{duration}</span>
           </div>
-          <div className="playbar-volume" onMouseEnter={this.showHover} onMouseLeave={this.hideHover}>
+          <div className="playbar-volume" onMouseEnter={()=>this.handleHover(true)} onMouseLeave={()=>this.handleHover(false)}>
             {this.state.hover && volumeBar}
-            <button className="button-playbar button-volume" onClick={()=>this.toggleField("muted")}>{volumeButton}</button>
+            <button className="button-playbar button-volume" onClick={this.toggleMute}>{volumeButton}</button>
           </div>
           <div className="playbar-track-item">
             <img src={this.props.currentTrack.albumArt} />

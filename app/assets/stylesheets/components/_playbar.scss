@@ -112,14 +112,19 @@
   width: 360px;
   padding: 0 8px;
   box-sizing: border-box;
+}
+
+.playbar-track-album-art {
+  margin: 0 10px 0 0;
+  height: 30px;
+
   img {
     width: 30px;
     height: 30px;
     border: 1px solid rgba(0,0,0,.1);
     box-sizing: border-box;
     object-position: 50% 50%;
-    object-fit: cover;
-    margin: 0 10px 0 0;
+    object-fit: cover;  
   }
 }
 

@@ -155,7 +155,7 @@ class PlayBar extends React.Component {
             <button className="button-playbar button-volume" onClick={this.toggleMute}>{volumeButton}</button>
           </div>
           <div className="playbar-track-item">
-            <img src={this.props.currentTrack.albumArt} />
+            <Link className="playbar-track-album-art" to={`/tracks/${this.props.currentTrack.id}`}><img src={this.props.currentTrack.albumArt}/></Link>
             <div className="playbar-track-item-container">
               <span><Link to={`/users/${this.props.currentTrack.uploader_id}`}>{uploader.username}</Link></span>
               <h1><Link to={`/tracks/${this.props.currentTrack.id}`}>{this.props.currentTrack.title}</Link></h1>

@@ -43,6 +43,7 @@ class NavBar extends React.Component {
           <nav className="navbar-left">
             {navlogo}
             <Link className="navbar-item" to="/discover">Home</Link>
+            <Link className="navbar-item" to="/stream">Stream</Link>
           </nav>
           {navbar}
         </div>

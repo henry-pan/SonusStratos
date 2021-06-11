@@ -31,6 +31,7 @@ class PlayBar extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
       if (this.props.isPlaying) {
+        document.getElementById("audio").volume = this.state.volume;
         if (this.props.currentTrack) document.getElementById("audio").play();
       } else {
         if (this.props.currentTrack) document.getElementById("audio").pause();

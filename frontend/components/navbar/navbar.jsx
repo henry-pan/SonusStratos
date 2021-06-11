@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -22,12 +24,14 @@ class NavBar extends React.Component {
             {this.props.currentUser.username}
         </Link>
         <button onClick={this.props.logout}>Log Out</button>
+        <a className="navbar-item item-icon" href="https://github.com/henry-pan/SonusStratos" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
       </nav>
     ) : (
       <nav className="navbar-right">
         <button className="button-transparent" onClick={() => this.props.openModal('login')}>Sign in</button>
         <button onClick={() => this.props.openModal('signup')}>Create account</button>
         <Link className="navbar-item" to="/upload">Upload</Link>
+        <a className="navbar-item item-icon" href="https://github.com/henry-pan/SonusStratos" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
       </nav>
     );
 

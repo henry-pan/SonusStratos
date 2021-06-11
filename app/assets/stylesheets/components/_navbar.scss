@@ -53,6 +53,14 @@
   }
 }
 
+.item-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  width: 46px;
+}
+
 .navbar-right {
   display: flex;
   align-items: center;

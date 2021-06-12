@@ -5,7 +5,7 @@ import Discover from './discover';
 
 const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.id],
-  tracks: Object.values(state.entities.tracks),
+  tracks: state.entities.tracks,
   users: state.entities.users
 });
 

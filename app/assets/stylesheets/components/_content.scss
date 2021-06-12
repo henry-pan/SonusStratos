@@ -23,6 +23,20 @@
     line-height: 1.3;
   }
 
+  h2 {
+    font-size: 24px;
+    font-weight: 100;
+    line-height: 1.3;
+    color: $dark-text;
+  }
+
+  h3 {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 100;
+    color: $light-text;
+  }
+
   .stream-list {
     margin-top: 15px;
   }
@@ -58,8 +72,3 @@
   }
   
 }
-
-// .content-footer-discover {
-//   position: fixed;
-//   right: 330px;
-// }

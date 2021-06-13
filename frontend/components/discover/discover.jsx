@@ -27,12 +27,11 @@ class Discover extends React.Component {
   render() {
     let xehrynTracks, battleTracks, emotionTracks, epicTracks, levelTracks;
     if (this.state.loaded) {
-      // xehrynTracks = this.mapTracks([1,2,16,17,18,19,20,21,22]);
-      xehrynTracks = this.mapTracks([1,2,16,17]);
-      battleTracks = this.mapTracks([11,15,14,7]);
+      xehrynTracks = this.mapTracks([1,2,16,17,18,19,20,21,22]);
+      levelTracks = this.mapTracks([6,9,8,10,20,18,17]);
+      battleTracks = this.mapTracks([11,14,15,7,13,12,16,21,22]);
       emotionTracks = this.mapTracks([3,4]);
-      epicTracks = this.mapTracks([13,5,12]);
-      levelTracks = this.mapTracks([6,8,10,9]);
+      epicTracks = this.mapTracks([13,5,12,14,2,19]);
     }
 
     return (
@@ -44,7 +43,7 @@ class Discover extends React.Component {
           <section className="discover-section">
             <div className="discover-title-container">
               <h2>Studio Xehryn Mix</h2>
-              <h3>Songs from Studio Xehryn games</h3>
+              <h3>Songs from Studio Xehryn games, Gate of Providence and Dreamshot Dissonance</h3>
             </div>
             <div className="discover-list">
               {xehrynTracks}
@@ -52,8 +51,17 @@ class Discover extends React.Component {
           </section>
           <section className="discover-section">
             <div className="discover-title-container">
+              <h2>Catchy Level Themes</h2>
+              <h3>Levels, stages, or zones to keep coming back to</h3>
+            </div>
+            <div className="discover-list">
+              {levelTracks}
+            </div>
+          </section>
+          <section className="discover-section">
+            <div className="discover-title-container">
               <h2>Awesome Battle Themes</h2>
-              <h3>High energy themes for battles</h3>
+              <h3>High energy themes for defeating enemies</h3>
             </div>
             <div className="discover-list">
               {battleTracks}
@@ -75,15 +83,6 @@ class Discover extends React.Component {
             </div>
             <div className="discover-list">
               {epicTracks}
-            </div>
-          </section>
-          <section className="discover-section">
-            <div className="discover-title-container">
-              <h2>Catchy Level Themes</h2>
-              <h3>Levels or stages to keep coming back to</h3>
-            </div>
-            <div className="discover-list">
-              {levelTracks}
             </div>
           </section>
         </div>

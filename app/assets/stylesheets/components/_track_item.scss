@@ -122,14 +122,6 @@
       color: $dark-text;
     }
   }
-
-}
-
-.tile-button-container {
-  width: 55px;
-  height: 55px;
-  box-sizing: border-box;
-  position: absolute;
 }
 
 .tile-album-art {
@@ -139,6 +131,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 5px;
+  position: relative;
   img {
     width: 173px;
     height: 173px;
@@ -147,4 +140,15 @@
     object-position: 50% 50%;
     object-fit: cover;
   }
+  &:hover > div {
+    display: block;
+  }
+}
+
+.tile-button-container {
+  display: none;
+  width: 55px;
+  height: 55px;
+  box-sizing: border-box;
+  position: absolute;
 }

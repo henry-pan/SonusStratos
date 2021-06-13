@@ -7,21 +7,14 @@ import PlayButtonContainer from "../playbutton/playbutton_container";
 class TrackItemTile extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      hover: false
-    }
-  }
-
-  handleHover(mode) {
-    this.setState({ hover: mode });
   }
 
   render() {
     return (
       <div className="tile-container">
-        <div className="tile-album-art"  onMouseEnter={()=>this.handleHover(true)} onMouseLeave={()=>this.handleHover(false)}>
+        <div className="tile-album-art">
           <div className="tile-button-container">
-            {this.state.hover && <PlayButtonContainer track={this.props.track} size="tile" />}
+            <PlayButtonContainer track={this.props.track} size="tile" />
           </div>
           <Link to={`/tracks/${this.props.track.id}`}><img src={this.props.track.albumArt}/></Link>
         </div>

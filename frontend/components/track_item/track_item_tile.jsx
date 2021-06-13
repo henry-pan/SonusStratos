@@ -25,8 +25,8 @@ class TrackItemTile extends React.Component {
           </div>
           <Link to={`/tracks/${this.props.track.id}`}><img src={this.props.track.albumArt}/></Link>
         </div>
-        <h2><Link to={`/tracks/${this.props.track.id}`}>{this.props.track.title}</Link></h2>
-        <h3><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.uploader.username}</Link></h3>
+        <h2 className="tile-title"><Link to={`/tracks/${this.props.track.id}`}>{this.props.track.title}</Link></h2>
+        <h3 className="tile-uploader"><Link to={`/users/${this.props.track.uploader_id}`}>{this.props.uploader.username}</Link></h3>
       </div>
     )
   }

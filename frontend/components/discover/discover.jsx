@@ -37,32 +37,69 @@ class Discover extends React.Component {
       <Modal />
       <div className="content">
         <div className="content-main">
-          <section>
-            <h2>Studio Xehryn Mix</h2>
-            <h3>Songs from Studio Xehryn games</h3>
-            <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
-            <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
-            <ul></ul>
+          <section className="discover-section">
+            <div className="discover-title-container">
+
+              <h2>Studio Xehryn Mix</h2>
+              <h3>Songs from Studio Xehryn games</h3>
+            </div>
+            <div className="discover-list">
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+            </div>
           </section>
-          <section>
-            <h2>Awesome Battle Themes</h2>
-            <h3>High energy themes for battles</h3>
-            <ul></ul>
+          <section className="discover-section">
+            <div className="discover-title-container">
+              
+              <h2>Awesome Battle Themes</h2>
+              <h3>High energy themes for battles</h3>
+            </div>
+            <div className="discover-list">
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+            </div>
           </section>
-          <section>
-            <h2>Emotional</h2>
-            <h3>To go along a masterfully crafted narrative</h3>
-            <ul></ul>
+          <section className="discover-section">
+            <div className="discover-title-container">
+              
+              <h2>Emotional</h2>
+              <h3>To go along a masterfully crafted narrative</h3>
+            </div>
+            <div className="discover-list">
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+            </div>
           </section>
-          <section>
-            <h2>Triumphant and Epic</h2>
-            <h3>Moments of triumph and awe</h3>
-            <ul></ul>
+          <section className="discover-section">
+            <div className="discover-title-container">
+              
+              <h2>Triumphant and Epic</h2>
+              <h3>Moments of triumph and awe</h3>
+            </div>
+            <div className="discover-list">
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+            </div>
           </section>
-          <section>
-            <h2>Catchy Level Themes</h2>
-            <h3>Levels or stages to keep coming back to</h3>
-            <ul></ul>
+          <section className="discover-section">
+            <div className="discover-title-container">
+              <h2>Catchy Level Themes</h2>
+              <h3>Levels or stages to keep coming back to</h3>
+              
+            </div>
+            <div className="discover-list">
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[17]} uploader={this.props.users[this.props.tracks[17].uploader_id]} />
+              <TrackItemTile track={this.props.tracks[20]} uploader={this.props.users[this.props.tracks[20].uploader_id]} />
+            </div>
           </section>
         </div>
         <div className="content-sidebar">

@@ -68,6 +68,24 @@ button, .button {
   line-height: 20px;
 }
 
+.button-carousel {
+  border: 1px solid $lighter-border;
+  border-radius: 3px;
+  background-color: #fff;
+  color: $dark-text;
+  box-sizing: border-box;
+  font-size: 11px;
+  padding: 2px 9px 2px 8px;
+  line-height: 16px;
+  height: 32px;
+  width: 32px;
+  pointer-events: auto;
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+}
+
 .button-play-small {
   width: 36px;
   height: 36px;

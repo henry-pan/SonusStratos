@@ -30,4 +30,21 @@
   padding-top: 2px;
   padding-bottom: 11px;
   margin-bottom: 12px;
+  scroll-behavior: smooth;
+}
+
+.discover-scroll-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 844px;
+  height: 173px;
+  margin-left: -14px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hide-scroll {
+  visibility: hidden;
 }

@@ -29,8 +29,7 @@ class Discover extends React.Component {
     if (!this.state.loaded) return null;
     let xehrynTracks, battleTracks, emotionTracks, epicTracks, levelTracks;
     if (this.state.loaded) {
-      // xehrynTracks = this.mapTracks([1,2,16,17,18,19,20,21,22]);
-      xehrynTracks = this.mapTracks([1,2,16,17,18,19,20,21,22,6,9,8,10,11,14,15,7,3,4,13,5,12]);
+      xehrynTracks = this.mapTracks([1,2,16,17,18,19,20,21,22]);
       levelTracks = this.mapTracks([6,9,8,10,20,18,17]);
       battleTracks = this.mapTracks([11,14,15,7,13,12,16,21,22]);
       emotionTracks = this.mapTracks([3,4]);

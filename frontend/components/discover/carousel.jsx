@@ -38,7 +38,7 @@ class Carousel extends React.Component {
     // Need to wait for scrolling to finish or increment breaks
     setTimeout(() => {
       this.setState({ scrollPosition: this.scrollElement.current.scrollLeft, scrolling: false });
-    }, 700);
+    }, 650);
   }
 
   render() {
@@ -46,15 +46,13 @@ class Carousel extends React.Component {
     let rightClass = (this.state.scrollPosition !== this.state.scrollMax) ? "button-carousel" : "button-carousel hide-scroll";
 
     return(
-      <>
-        <div ref={this.scrollElement} className="discover-list">
-          <div className="discover-scroll-container">
-            <button className={leftClass} onClick={() => this.handleScroll("left")}><FontAwesomeIcon icon={faAngleLeft} size="lg"/></button>
-            <button className={rightClass} onClick={() => this.handleScroll("right")}><FontAwesomeIcon icon={faAngleRight} size="lg"/></button>
-          </div>
-          {this.props.trackItems}
+      <div ref={this.scrollElement} className="discover-list">
+        <div className="discover-scroll-container">
+          <button className={leftClass} onClick={() => this.handleScroll("left")}><FontAwesomeIcon icon={faAngleLeft} size="lg"/></button>
+          <button className={rightClass} onClick={() => this.handleScroll("right")}><FontAwesomeIcon icon={faAngleRight} size="lg"/></button>
         </div>
-      </>
+        {this.props.trackItems}
+      </div>
     );
   }
 

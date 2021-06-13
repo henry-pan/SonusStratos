@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Modal from "../modal/modal";
 import Footer from "../footer/footer";
 
@@ -90,6 +91,7 @@ export default ({ currentUser, logout, openModal }) => {
             <h3>AdolTheRed</h3>
           </div>
         </div>
+        <Link className="button button-link" to="/discover">Explore trending playlists</Link>
       </section>
       <section className="splash-devices">
         <figure />

@@ -15,7 +15,7 @@ a {
   text-decoration: none;
 }
 
-button {
+button, .button {
   display: inline-block;
   position: relative;
   white-space: nowrap;
@@ -31,6 +31,14 @@ button {
   border: 1px solid $accent;
   padding: 2px 16px;
   outline: none;
+}
+
+.button-link {
+  font-size: 18px;
+  height: 46px;
+  padding: 13px 23px;
+  line-height: 18px;
+  margin-bottom: 10px;
 }
 
 .button-transparent {

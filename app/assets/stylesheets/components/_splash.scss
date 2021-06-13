@@ -64,6 +64,9 @@
 }
 
 .splash-trending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: inherit;
 
   h1 {
@@ -79,6 +82,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 19px;
+  padding-bottom: 11px;
 }
 
 .splash-track {

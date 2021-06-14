@@ -59,7 +59,9 @@ class Track < ApplicationRecord
 end
 ```
 
-Once the track is uploaded, users can edit the title, description, and album art by accessing the track's page.
+Once the track is uploaded, it will have its own page. The uploader can edit the title, description, and album art by clicking the Edit button. The track can also be deleted as well.
+
+![TrackPage](https://github.com/henry-pan/SonusStratos/blob/main/docs/track_page.png)
 
 ## Continuous Play
 

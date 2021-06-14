@@ -3,7 +3,7 @@ import NavBarContainer from "../navbar/navbar_container";
 import TrackItemTile from "../track_item/track_item_tile";
 import Modal from "../modal/modal";
 import Footer from "../footer/footer";
-import Carousel from "./carousel";
+import Carousel from "../carousel/carousel";
 
 class Discover extends React.Component {
   constructor(props) {

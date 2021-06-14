@@ -10,8 +10,7 @@ class Carousel extends React.Component {
     this.state = {
       scrollPosition: 0,
       scrollMax: 0,
-      increment: 772,
-      scrolling: false
+      increment: 772
     }
   }
 
@@ -25,20 +24,17 @@ class Carousel extends React.Component {
   }
 
   handleScroll(dir) {
-    if (this.state.scrolling) return;
     let inc = this.state.increment;
+    let pos = this.state.scrollPosition;
 
     // Reduce increment if at a container edge
-    if (this.state.scrollPosition === 0 || this.state.scrollPosition === this.state.scrollMax) inc -= 34;
+    if (pos === 0 || pos === this.state.scrollMax) inc -= 34;
     
     if (dir === "left") inc *= -1;
-    this.scrollElement.current.scrollLeft += inc;
-    this.setState({ scrolling: true });
+    pos += inc;
 
-    // Need to wait for scrolling to finish or increment breaks
-    setTimeout(() => {
-      this.setState({ scrollPosition: this.scrollElement.current.scrollLeft, scrolling: false });
-    }, 650);
+    this.scrollElement.current.scrollLeft = pos;
+    this.setState({ scrollPosition: Math.max(0, Math.min(pos, this.state.scrollMax)) });
   }
 
   render() {

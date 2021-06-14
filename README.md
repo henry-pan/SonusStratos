@@ -53,6 +53,8 @@ Logged in users can upload new tracks to SonusStratos. Each track can optionally
 Uploads are handled with ActiveStorage and AWS S3, which only needs a small addition to the Track model.
 
 ```ruby
+# app/models/track.rb
+
 class Track < ApplicationRecord
   has_one_attached :album_art
   has_one_attached :audio_file
@@ -63,13 +65,19 @@ Once the track is uploaded, it will have its own page. The uploader can edit the
 
 ![TrackPage](https://github.com/henry-pan/SonusStratos/blob/main/docs/track_page.png)
 
-## Continuous Play
+## Continuous Play / Playbar
 
-Once a track is played, it appears on the playbar on the bottom of the screen. The track will continue to play even as users navigate around the site. In addition, users can restart the track, toggle looping, and adjust the volume. Users can click on the seek bar to jump around the current track. Clicking the duration on the right of the seek bar will toggle between track duration and duration remaining.
+Once a track is played, it appears on the "playbar" on the bottom of the screen. The track will continue to play even as users navigate around the site, and its playing status, shown by the play button, is preserved even as users navigate to other pages.
+
+In addition, users can restart the track, toggle looping, and mute / adjust the volume. Users can click on the seek bar to skip around on the current track. Clicking the duration on the right of the seek bar will toggle between track duration and duration remaining.
 
 ## Comments
 
-Logged in users can leave comments on tracks by navigating to a track's page and entering a comment in the comment box. Users can delete their own comments, and the uploader of the track can delete any comment on their track. When the uploader leaves a comment on their own track, their comment is highlighted in gray.
+Logged in users can leave comments on tracks by navigating to a track's page and entering a comment in the comment box. Users can delete their own comments, and the uploader of the track can delete any comment on their track.
+
+When the uploader leaves a comment on their own track, their comment is highlighted in gray.
+
+![Comment](https://github.com/henry-pan/SonusStratos/blob/main/docs/comment.png)
 
 ## User Pages
 

@@ -18,7 +18,31 @@ SonusStratos is a audio sharing application that allows users to post audio trac
 
 ## Discover
 
-Users can view and listen to all the tracks uploaded to SonusStratos on the Discover page. Each track can be played by clicking the play button, which opens the playbar and plays the track. By clicking on the title or album art of a track, users can navigate to the track's page to view other details like the description or user comments.
+Users can view and listen to featured tracks uploaded to SonusStratos on the Discover page. There are multiple carousels that users can scroll through to browse tracks.
+
+![Carousel](https://github.com/henry-pan/SonusStratos/blob/main/docs/carousel.gif)
+
+The carousel was implemented using a CSS rule `scroll-behavior: smooth` on the container element, and a `handleScroll` function called by some buttons. The function  manipulates the container element's `scrollLeft` property, accessed by a hook.
+
+```javascript
+// frontend/components/carousel/carousel.jsx
+
+handleScroll(dir) {
+  let inc = this.state.increment;
+  let pos = this.state.scrollPosition;
+
+  // Reduce increment if pos at a container edge
+  if (pos === 0 || pos === this.state.scrollMax) inc -= 34;
+
+  if (dir === "left") inc *= -1;
+  pos += inc;
+
+  this.scrollElement.current.scrollLeft = pos;
+  this.setState({ scrollPosition: Math.max(0, Math.min(pos, this.state.scrollMax)) });
+}
+```
+
+Each track can be played by clicking the play button, which opens the playbar and plays the track. By clicking on the title or album art of a track, users can navigate to the track's page to view other details like the description or user comments.
 
 ## Uploading / Track Pages
 

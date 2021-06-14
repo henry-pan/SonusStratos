@@ -45,6 +45,22 @@
   pointer-events: none;
 }
 
+.discover-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+  &:hover > button {
+    border-color: $accent;
+    color: $accent;
+  }
+  &:last-child > button {
+    margin-left: 0;
+  }
+}
+
 .hide-scroll {
   visibility: hidden;
 }

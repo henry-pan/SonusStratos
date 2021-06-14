@@ -46,7 +46,20 @@ Each track can be played by clicking the play button, which opens the playbar an
 
 ## Uploading / Track Pages
 
-Logged in users can upload new tracks to SonusStratos. Each track can optionally be given an album art. Once uploaded, users can edit the title, description, and album art by accessing the track's page.
+Logged in users can upload new tracks to SonusStratos. Each track can optionally be given an album art. If the user opts not to upload a picture for album art, their profile picture is used instead, like with SoundCloud.
+
+![Upload](https://github.com/henry-pan/SonusStratos/blob/main/docs/upload.png)
+
+Uploads are handled with ActiveStorage and AWS S3, which only needs a small addition to the Track model.
+
+```ruby
+class Track < ApplicationRecord
+  has_one_attached :album_art
+  has_one_attached :audio_file
+end
+```
+
+Once the track is uploaded, users can edit the title, description, and album art by accessing the track's page.
 
 ## Continuous Play
 

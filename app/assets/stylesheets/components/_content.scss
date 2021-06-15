@@ -45,10 +45,9 @@
   font-weight: 100;
   
   a {
-    color: $lighter-text;
-    
+    color: $light-text;
     &:hover {
-      color: $light-text;
+      color: $dark-text;
     }
   }
   
@@ -57,4 +56,14 @@
     margin-top: 5px;
   }
   
+}
+
+.footer-buttons {
+  display: flex;
+  padding: 4px 0 11px;
+  margin-bottom: 11px;
+  border-bottom: 1px solid $lightest-border;
+  a {
+    margin-right: 8px;
+  }
 }

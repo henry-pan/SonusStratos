@@ -82,6 +82,10 @@ class Discover extends React.Component {
         </div>
         <div className="content-sidebar">
           <footer className={`content-footer content-footer-discover`}>
+            <div className="footer-buttons">
+              <a href="https://github.com/henry-pan" target="_blank" rel="noopener noreferrer"><img src={window.github} /></a>
+              <a href="https://www.linkedin.com/in/henry-pan/" target="_blank" rel="noopener noreferrer"><img src={window.linkedin} /></a>
+            </div>
             <Footer />
           </footer>
         </div>

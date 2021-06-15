@@ -3,6 +3,9 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, length: { minimum: 1, allow_nil: true }, uniqueness: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  # Additional validation to exclude TLD-less emails
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
   attr_reader :password
   after_initialize :ensure_session_token

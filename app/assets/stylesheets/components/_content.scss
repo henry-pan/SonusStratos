@@ -45,9 +45,9 @@
   font-weight: 100;
   
   a {
-    color: $light-text;
+    color: $lighter-text;
     &:hover {
-      color: $dark-text;
+      color: $light-text;
     }
   }
   
@@ -55,7 +55,6 @@
     color: $dark-text;
     margin-top: 5px;
   }
-  
 }
 
 .footer-buttons {

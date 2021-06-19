@@ -86,4 +86,5 @@ Users can edit their username, full name, city, country, bio, and profile pictur
 # Planned Features
 
 * Likes - Allow for users to "like" a track, which makes it appear on their user page sidebar.
+* Search - Allow for users to search for a track by title on the navbar.
 * Dark Mode - A toggle to change the color scheme of the site.

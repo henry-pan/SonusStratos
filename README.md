@@ -81,7 +81,7 @@ When the uploader leaves a comment on their own track, their comment is highligh
 
 ## User Pages
 
-Users can edit their username, full name, city, country, bio, and profile picture on their user page. This page also displays the tracks the user has uploaded.
+Users can edit their username, full name, city, country, bio, and profile picture on their user page. This page also displays a list of all the tracks the user has uploaded.
 
 # Planned Features
 

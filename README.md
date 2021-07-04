@@ -2,7 +2,7 @@
 
 [Live on Heroku!](https://sonusstratos.herokuapp.com/#/)
 
-SonusStratos is a audio sharing application that allows users to post audio tracks and listen to audio tracks posted by other users. Users may also post comments on audio tracks.
+SonusStratos, a SoundCloud clone, is a audio sharing application that allows users to post audio tracks and listen to audio tracks posted by other users. Users may also post comments on audio tracks.
 
 # Built With
 
